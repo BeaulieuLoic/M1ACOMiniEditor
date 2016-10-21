@@ -91,7 +91,14 @@ public class MiniEditorStub implements MiniEditor {
 	 */
 
 	public void editorInsert(String str) {
-		buffer.insert(selector.getStart(), str);
+		int lengthStr = str.length();
+		if (selector.getStart() == selector.getEnd()) {
+			buffer.insert(selector.getStart(), str);
+			editorSelect(selector.getStart()+lengthStr, selector.getEnd()+lengthStr);
+		}else{
+			buffer.replace(selector.getStart(),selector.getEnd(), str);
+			editorSelect(selector.getStart()+lengthStr, selector.getStart()+lengthStr);
+		}	
 	}
 
 	/**
@@ -105,5 +112,6 @@ public class MiniEditorStub implements MiniEditor {
 		selector.setStart(start);
 		selector.setEnd(end);
 	}
-
+	
+	
 }
