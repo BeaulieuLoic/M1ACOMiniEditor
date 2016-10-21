@@ -10,7 +10,13 @@ package receiver;
 public class MiniClipboard //extends Clipboard
 {
 
-	String clip;
+	private String clip;
+	
+	@Override
+	public String toString() {
+		return "\""+clip+"\"";
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!--  end-user-doc  -->

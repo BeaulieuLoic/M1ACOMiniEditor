@@ -10,14 +10,10 @@ package receiver;
 public class Selector
 {
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 * @ordered
-	 */
-	
-	public int start;
+	@Override
+	public String toString() {
+		return "Selector [start=" + start + ", end=" + end + "]";
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -26,7 +22,16 @@ public class Selector
 	 * @ordered
 	 */
 	
-	public int end;
+	private int start;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!--  end-user-doc  -->
+	 * @generated
+	 * @ordered
+	 */
+	
+	private int end;
 
 	/**
 	 * <!-- begin-user-doc -->

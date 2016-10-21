@@ -43,10 +43,14 @@ public class MiniBuffer {
 	public StringBuffer getBuffer() {
 		return buffer;
 	}
+	
+	public int getSize(){
+		return buffer.length();
+	}
 
 	@Override
 	public String toString() {
-		return buffer.toString();
+		return "\""+buffer.toString()+"\"";
 	}	
 
 }
