@@ -1,14 +1,13 @@
 package command;
 
 import receiver.MiniEditor;
-import receiver.MiniEditorStub;
 
 public class Copy implements Command {
 
 	private MiniEditor editeur;
 	
-	public Copy(){
-		editeur = new MiniEditorStub();
+	public Copy(MiniEditor e){
+		editeur = e;
 	}
 		
 	@Override
