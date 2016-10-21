@@ -2,19 +2,18 @@ package command;
 
 import receiver.MiniEditor;
 
-
-public class Cut implements Command {
+public class InsertText implements Command {
 
 	private MiniEditor editeur;
 	
-	public Cut(MiniEditor e){
+	public InsertText(MiniEditor e){
 		editeur = e;
 	}
-		
+	
 	@Override
 	public void execute() {
-		editeur.editorCut();
-	}
+		// TODO Auto-generated method stub
 
+	}
 
 }
