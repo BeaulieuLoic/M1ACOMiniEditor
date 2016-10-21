@@ -54,5 +54,4 @@ public  interface MiniEditor
 	
 	public void editorSelect(int parameter, int parameter2) ;
 
-
 }

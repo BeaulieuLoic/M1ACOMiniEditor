@@ -23,5 +23,9 @@ public class MiniIHMStub extends JFrame implements MiniIHM {
 		JFrame frame = new MiniIHMStub();
 	}
 
-
+	
+	public String getText(){
+		return "test";
+	}
+	
 }
