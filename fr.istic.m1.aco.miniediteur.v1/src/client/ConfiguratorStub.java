@@ -1,5 +1,10 @@
 package client;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import command.Command;
+import invoker.MiniIHM;
 import invoker.MiniIHMStub;
 
 public class ConfiguratorStub {
@@ -13,10 +18,10 @@ public class ConfiguratorStub {
 	
 	
 	public static void main(String[] args) {
-
+		Map<String, Command> mapCommand = new HashMap<>();
 		
 		
-		MiniIHMStub frame = new MiniIHMStub();
+		MiniIHM frame = new MiniIHMStub(mapCommand);
 	}
 	
 }
