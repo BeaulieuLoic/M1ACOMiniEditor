@@ -9,9 +9,8 @@ package receiver;
 public class MiniEditorStub implements MiniEditor {
 	@Override
 	public String toString() {
-		return "MiniEditorStub: \nselector=" + selector
-				+ "\nclipboard=" + clipboard + 
-				"\nbuffer= " + buffer;
+		return "MiniEditorStub: \nselector=" + selector + "\nclipboard="
+				+ clipboard + "\nbuffer=\n" + buffer + "\n";
 	}
 
 	/**
@@ -62,7 +61,8 @@ public class MiniEditorStub implements MiniEditor {
 
 	public void editorCopy() {
 		if (selector.getStart() != selector.getEnd()) {
-			clipboard.setClip(buffer.copy(selector.getStart(), selector.getEnd()));
+			clipboard.setClip(buffer.copy(selector.getStart(),
+					selector.getEnd()));
 		}
 	}
 
@@ -74,7 +74,11 @@ public class MiniEditorStub implements MiniEditor {
 	 */
 
 	public void editorCut() {
-		buffer.delete(selector.getStart(), selector.getEnd());
+		if (selector.getStart() != selector.getEnd()) {
+			clipboard.setClip(buffer.copy(selector.getStart(),
+					selector.getEnd()));
+			buffer.delete(selector.getStart(), selector.getEnd());
+		}
 	}
 
 	/**
@@ -108,6 +112,17 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
+	public void editorRemove() {
+		
+		if (selector.getStart() == selector.getEnd()) {
+			buffer.delete(selector.getStart()-1, selector.getEnd());
+			editorSelect(selector.getStart() - 1, selector.getStart() - 1);
+		} else {
+			buffer.delete(selector.getStart(), selector.getEnd());
+			editorSelect(selector.getStart(), selector.getStart());
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -122,15 +137,15 @@ public class MiniEditorStub implements MiniEditor {
 			endModif = startModif;
 			startModif = tmp;
 		}
-		
+
 		if (startModif > buffer.getSize()) {
 			startModif = buffer.getSize();
 		}
-		
+
 		if (endModif > buffer.getSize()) {
 			endModif = buffer.getSize();
 		}
-		
+
 		selector.setStart(startModif);
 		selector.setEnd(endModif);
 	}
