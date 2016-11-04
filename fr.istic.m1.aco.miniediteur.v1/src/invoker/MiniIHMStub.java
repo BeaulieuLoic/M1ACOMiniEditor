@@ -192,4 +192,10 @@ public class MiniIHMStub extends JFrame implements MiniIHM, ActionListener {
 		return strInsert;
 	}
 
+	@Override
+	public void launchIHM() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

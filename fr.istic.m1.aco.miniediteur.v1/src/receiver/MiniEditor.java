@@ -52,5 +52,12 @@ public interface MiniEditor {
 	 */
 
 	public void editorSelect(int parameter, int parameter2);
-
+	
+	
+	public String getBuffer();
+	
+	public String getClipboard();
+	
+	public String getSelection();
+	
 }

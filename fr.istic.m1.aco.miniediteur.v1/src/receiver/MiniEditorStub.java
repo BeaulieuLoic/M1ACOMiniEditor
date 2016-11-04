@@ -78,6 +78,7 @@ public class MiniEditorStub implements MiniEditor {
 			clipboard.setClip(buffer.copy(selector.getStart(),
 					selector.getEnd()));
 			buffer.delete(selector.getStart(), selector.getEnd());
+			editorSelect(selector.getStart(),selector.getStart());
 		}
 	}
 
@@ -89,7 +90,9 @@ public class MiniEditorStub implements MiniEditor {
 	 */
 
 	public void editorPaste() {
+		
 		editorInsert(clipboard.getClip());
+
 	}
 
 	/**
@@ -148,6 +151,19 @@ public class MiniEditorStub implements MiniEditor {
 
 		selector.setStart(startModif);
 		selector.setEnd(endModif);
+	}
+	
+	public String getBuffer(){
+		return buffer.getBuffer().toString();
+	}
+	
+	public String getClipboard(){
+		return clipboard.getClip();
+	}
+	
+	public String getSelection(){	
+		
+		return buffer.getBuffer().toString().substring(selector.getStart(), selector.getEnd());
 	}
 
 }

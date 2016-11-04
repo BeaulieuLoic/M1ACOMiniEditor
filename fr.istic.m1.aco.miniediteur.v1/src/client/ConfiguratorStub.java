@@ -12,6 +12,7 @@ import command.InsertText;
 import command.ModifSelector;
 import command.Paste;
 import command.RemoveSelect;
+import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
 import invoker.MiniIHMStub;
 
@@ -29,26 +30,28 @@ public class ConfiguratorStub {
 		
 		
 		MiniEditor editor = new MiniEditorStub();
-		MiniIHM frame = new MiniIHMStub();
+		MiniIHM ihm = new MiniEditorTextInterface(editor);
 		
 		
 		Command copy = new Copy(editor);
-		frame.setCopy(copy);
+		ihm.setCopy(copy);
 		
 		Command cut = new Cut(editor);
-		frame.setCut(cut);
+		ihm.setCut(cut);
 		
 		Command paste = new Paste(editor);
-		frame.setPaste(paste);
+		ihm.setPaste(paste);
 		
-		Command insertText = new InsertText(editor,frame);
-		frame.setInsertText(insertText);
+		Command insertText = new InsertText(editor,ihm);
+		ihm.setInsertText(insertText);
 		
-		Command modifSelector = new ModifSelector(editor,frame);
-		frame.setModifSelector(modifSelector);
+		Command modifSelector = new ModifSelector(editor,ihm);
+		ihm.setModifSelector(modifSelector);
 		
 		Command removeSelect = new RemoveSelect(editor);
-		frame.setRemoveSelect(removeSelect);
+		ihm.setRemoveSelect(removeSelect);
+		
+		ihm.launchIHM();
 		
 		
 		

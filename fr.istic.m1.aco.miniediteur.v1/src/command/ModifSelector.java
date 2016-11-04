@@ -30,7 +30,6 @@ public class ModifSelector implements Command {
 	@Override
 	public void execute() {
 		editeur.editorSelect(ihm.getSelectStart(),ihm.getSelectEnd());
-		System.out.println(editeur);
 	}
 	
 	

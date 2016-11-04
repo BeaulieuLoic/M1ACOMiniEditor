@@ -20,6 +20,7 @@ public interface MiniIHM {
 	public int getSelectEnd();
 
 	
+	public void launchIHM();
 	
 	public String getText();
 }
