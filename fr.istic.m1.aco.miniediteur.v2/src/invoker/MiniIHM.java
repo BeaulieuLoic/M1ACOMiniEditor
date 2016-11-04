@@ -19,6 +19,11 @@ public interface MiniIHM {
 
 	public int getSelectEnd();
 
+	public void setStartRecording(Command c);
+
+	public void setEndRecording(Command c);
+
+	public void setPlayRecording(Command c);
 	
 	public void launchIHM();
 	

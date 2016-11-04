@@ -3,18 +3,9 @@ package client;
 import java.util.HashMap;
 import java.util.Map;
 
-import receiver.MiniEditor;
-import receiver.MiniEditorStub;
-import command.Command;
-import command.Copy;
-import command.Cut;
-import command.InsertText;
-import command.ModifSelector;
-import command.Paste;
-import command.RemoveSelect;
-import invoker.MiniEditorTextInterface;
-import invoker.MiniIHM;
-import invoker.MiniIHMStub;
+import receiver.*;
+import command.*;
+import invoker.*;
 
 public class ConfiguratorStub {
 
@@ -50,6 +41,18 @@ public class ConfiguratorStub {
 		
 		Command removeSelect = new RemoveSelect(editor);
 		ihm.setRemoveSelect(removeSelect);
+		
+		
+		Command endRecording = new EndRecording(editor);
+		ihm.setEndRecording(endRecording);
+		
+		Command playRecording = new PlayRecording(editor);
+		ihm.setPlayRecording(playRecording);
+		
+		Command startRecording = new StartRecording(editor);
+		ihm.setStartRecording(startRecording);
+		
+		
 		
 		ihm.launchIHM();
 		

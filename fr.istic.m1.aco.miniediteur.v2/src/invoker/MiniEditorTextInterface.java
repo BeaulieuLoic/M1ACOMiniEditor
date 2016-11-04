@@ -19,6 +19,10 @@ public class MiniEditorTextInterface implements MiniIHM {
 	private Command insert;
 	private Command removeSelect;
 	private Command modifSelect;
+	
+	private Command startRecording;
+	private Command endRecording;
+	private Command playRecording;
 
 	private MiniEditor editor;
 
@@ -40,7 +44,7 @@ public class MiniEditorTextInterface implements MiniIHM {
 		String inputLine;
 		char commandLetter;
 
-		System.out.println("Welcome to MiniEditor 9.99 (c) 2015 ISTIC Rennes");
+		System.out.println("Welcome to MiniEditor 9.99 (c) 2016 ISTIC Rennes");
 		System.out
 				.println("-----------------------------------------------------------");
 
@@ -172,7 +176,24 @@ public class MiniEditorTextInterface implements MiniIHM {
 		insert = c;
 
 	}
+	@Override
+	public void setStartRecording(Command c) {
+		startRecording = c;
 
+	}
+	@Override
+	public void setEndRecording(Command c) {
+		endRecording = c;
+
+	}
+	@Override
+	public void setPlayRecording(Command c) {
+		playRecording = c;
+
+	}
+	
+	
+	
 	@Override
 	public int getSelectStart() {
 		return startSelect;
