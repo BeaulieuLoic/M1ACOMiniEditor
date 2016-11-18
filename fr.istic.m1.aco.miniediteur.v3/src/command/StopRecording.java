@@ -2,17 +2,17 @@ package command;
 
 import memento.Recorder;
 
-public class StartRecording implements Command {
-	
+public class StopRecording implements Command {
+
 	private Recorder rec;
-	
-	public StartRecording(Recorder e){
+
+	public StopRecording(Recorder e) {
 		rec = e;
 	}
-	
+
 	@Override
 	public void execute() {
-		rec.startRecord();
+		rec.stopRecord();
 	}
 
 }
