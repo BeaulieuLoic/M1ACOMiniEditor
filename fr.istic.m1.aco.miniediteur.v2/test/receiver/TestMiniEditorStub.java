@@ -80,4 +80,21 @@ public class TestMiniEditorStub {
 		assertTrue(editor.getBuffer().equals(editor.getSelection()));
 	}
 
+	@Test
+	public void testRecording() {
+		System.out.println("----- testEditorRecord -----");
+		rec = new Recorder();
+		editor = new MiniEditorStub(rec);
+		editor.editorInsert(msgTest);
+
+		editor.startRecording();
+		editor.editorInsert(msgTest);
+		editor.stopRecording();
+
+		editor.playRecording();
+		System.out.println(editor);
+
+		assertTrue(editor.getBuffer().equals(msgTest + msgTest));
+	}
+
 }
