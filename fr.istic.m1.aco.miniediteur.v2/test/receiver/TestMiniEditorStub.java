@@ -9,7 +9,6 @@ public class TestMiniEditorStub {
 	MiniEditor editor;
 	Recorder rec;
 	String msgTest = "azerty";
-	
 
 	@Test
 	public void testEditorCopy() {
@@ -17,12 +16,11 @@ public class TestMiniEditorStub {
 		rec = new Recorder();
 		editor = new MiniEditorStub(rec);
 		editor.editorInsert(msgTest);
-		editor.editorSelect(0,500);
+		editor.editorSelect(0, 500);
 		editor.editorCopy();
-		
-		
+
+		assertTrue(editor.getClipboard().equals(editor.getBuffer()));
 		System.out.println(editor);
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -31,13 +29,11 @@ public class TestMiniEditorStub {
 		rec = new Recorder();
 		editor = new MiniEditorStub(rec);
 		editor.editorInsert(msgTest);
-		editor.editorSelect(0,500);
+		editor.editorSelect(0, 500);
 		editor.editorCut();
-		
-		
 		System.out.println(editor);
-		
-		fail("Not yet implemented");
+
+		assertTrue(editor.getClipboard().equals(msgTest) && editor.getBuffer().equals(""));
 	}
 
 	@Test
@@ -46,14 +42,14 @@ public class TestMiniEditorStub {
 		rec = new Recorder();
 		editor = new MiniEditorStub(rec);
 		editor.editorInsert(msgTest);
-		editor.editorSelect(0,500);
+		editor.editorSelect(0, 500);
 		editor.editorCopy();
 		editor.editorPaste();
 		editor.editorPaste();
 		editor.editorPaste();
-		
 		System.out.println(editor);
-		fail("Not yet implemented");
+
+		assertTrue(editor.getBuffer().equals(msgTest + msgTest + msgTest));
 	}
 
 	@Test
@@ -61,14 +57,15 @@ public class TestMiniEditorStub {
 		System.out.println("----- testEditorInsert -----");
 		rec = new Recorder();
 		editor = new MiniEditorStub(rec);
-		
+
 		editor.editorInsert(msgTest);
 		editor.editorInsert(msgTest);
-		editor.editorSelect(0,50);
+		editor.editorSelect(0, 50);
 		editor.editorInsert("a");
 		System.out.println(editor);
-		
-		fail("Not yet implemented");
+
+		assertTrue(editor.getBuffer().equals("a"));
+
 	}
 
 	@Test
@@ -76,10 +73,11 @@ public class TestMiniEditorStub {
 		System.out.println("----- testEditorSelect -----");
 		rec = new Recorder();
 		editor = new MiniEditorStub(rec);
-		editor.editorSelect(50,50);
-		
+		editor.editorInsert(msgTest);
+		editor.editorSelect(0, 50);
 		System.out.println(editor);
-		fail("Not yet implemented");
+
+		assertTrue(editor.getBuffer().equals(editor.getSelection()));
 	}
 
 }

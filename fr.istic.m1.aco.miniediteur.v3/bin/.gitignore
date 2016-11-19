@@ -1,5 +1,5 @@
-/memento/
 /client/
 /command/
-/receiver/
 /invoker/
+/memento/
+/receiver/

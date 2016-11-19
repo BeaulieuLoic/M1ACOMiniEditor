@@ -2,7 +2,6 @@ package receiver;
 
 import java.lang.StringBuffer;
 
-
 /**
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
@@ -10,7 +9,6 @@ import java.lang.StringBuffer;
  */
 
 public class MiniBuffer {
-
 
 	private StringBuffer buffer;
 
@@ -39,18 +37,18 @@ public class MiniBuffer {
 	public void replace(int start, int end, String str) {
 		buffer.replace(start, end, str);
 	}
-	
+
 	public StringBuffer getBuffer() {
 		return buffer;
 	}
-	
-	public int getSize(){
+
+	public int getSize() {
 		return buffer.length();
 	}
 
 	@Override
 	public String toString() {
-		return "\""+buffer.toString()+"\"";
-	}	
+		return "\"" + buffer.toString() + "\"";
+	}
 
 }
