@@ -49,8 +49,24 @@ public class TestMiniBuffer {
 		buf.insert(0,str);
 		
 		buf.replace(3,5,"AA");
-		
 		assertTrue(buf.toString().equals("TesAAtring"));
+	}
+	
+	@Test
+	public void testGetBuffer(){
+		buf = new MiniBuffer();
+		String str = "TestString";
+		buf.insert(0, str);
+		
+		assertTrue(buf.getBuffer().toString().equals(str));
+	}
+	
+	@Test
+	public void testGetSize(){
+		buf = new MiniBuffer();
+		String str = "TestString";
+		buf.insert(0, str);
+		assertTrue(buf.getSize()==str.length());
 	}
 
 }
