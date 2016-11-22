@@ -22,6 +22,7 @@ public class InsertText extends RecordableCommand {
 	public void execute() {
 		editor.editorInsert(ihm.getText());
 		recorder.add(this);
+		editor.newState();
 	}
 	
 	@Override

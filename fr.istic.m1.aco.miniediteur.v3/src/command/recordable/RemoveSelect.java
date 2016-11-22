@@ -19,6 +19,7 @@ public class RemoveSelect extends RecordableCommand {
 	public void execute() {
 		editor.editorRemove();
 		recorder.add(this);
+		editor.newState();
 	}
 	
 	@Override

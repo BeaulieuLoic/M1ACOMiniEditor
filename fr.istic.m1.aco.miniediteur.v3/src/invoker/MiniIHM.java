@@ -24,8 +24,13 @@ public interface MiniIHM {
 	public void setStopRecording(Command c);
 
 	public void setPlayRecording(Command c);
-	
+
+	void setUndo(Command c);
+
+	void setRedo(Command c);
+
 	public void launchIHM();
-	
+
 	public String getText();
+
 }

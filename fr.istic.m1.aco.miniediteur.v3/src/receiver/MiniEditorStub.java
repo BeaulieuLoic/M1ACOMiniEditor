@@ -1,5 +1,6 @@
 package receiver;
 
+import receiver.exception.*;
 import memento.Recorder;
 
 /**
@@ -50,12 +51,15 @@ public class MiniEditorStub implements MiniEditor {
 
 	private Recorder recorder;
 
+	private MiniState actualState;
+
 	public MiniEditorStub(Recorder r) {
 		super();
 		buffer = new MiniBuffer();
 		clipboard = new MiniClipboard();
 		selector = new Selector();
 		recorder = r;
+		actualState = new MiniState(buffer, selector);
 	}
 
 	/**
@@ -205,6 +209,35 @@ public class MiniEditorStub implements MiniEditor {
 	@Override
 	public void playRecording() {
 		recorder.playRecord();
+	}
+	
+	private void update(){
+		buffer=actualState.getBuf();
+		selector=actualState.getSel();
+	}
+
+	public void undo() throws UndoException {
+		if (actualState.getPre() == null) {
+			throw new UndoException("No previous state");
+		} else {
+			actualState = actualState.getPre();
+			update();
+		}
+	}
+
+	public void redo() throws RedoException {
+		if (actualState.getNext() == null) {
+			throw new RedoException("No next state");
+		} else {
+			actualState = actualState.getNext();
+			update();
+		}
+
+	}
+
+	public void newState() {
+		actualState.addNext(buffer, selector);
+		actualState = actualState.getNext();
 	}
 
 }

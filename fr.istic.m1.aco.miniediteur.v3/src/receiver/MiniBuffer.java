@@ -24,6 +24,11 @@ public class MiniBuffer {
 		buffer = new StringBuffer();
 	}
 
+	public MiniBuffer(StringBuffer buf){
+		super();
+		buffer=new StringBuffer(buf.toString());
+	}
+	
 	public void delete(int start, int end) {
 		buffer.delete(start, end);
 	}

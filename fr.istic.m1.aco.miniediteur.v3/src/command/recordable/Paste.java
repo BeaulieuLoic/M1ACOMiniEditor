@@ -18,6 +18,7 @@ public class Paste extends RecordableCommand {
 	public void execute() {
 		editor.editorPaste();
 		recorder.add(this);
+		editor.newState();
 	}
 
 	@Override

@@ -22,6 +22,7 @@ public class ModifSelector extends RecordableCommand {
 		editor = e;
 		ihm = i;
 		recorder = r;
+		
 	}
 
 	/*
@@ -33,6 +34,7 @@ public class ModifSelector extends RecordableCommand {
 	public void execute() {
 		editor.editorSelect(ihm.getSelectStart(), ihm.getSelectEnd());
 		recorder.add(this);
+		editor.newState();
 	}
 
 	@Override

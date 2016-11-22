@@ -1,5 +1,8 @@
 package receiver;
 
+import receiver.exception.RedoException;
+import receiver.exception.UndoException;
+
 /**
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
@@ -69,4 +72,9 @@ public interface MiniEditor {
 	
 	public void playRecording();
 	
+	public void undo() throws UndoException;
+
+	public void redo() throws RedoException;
+
+	public void newState();
 }

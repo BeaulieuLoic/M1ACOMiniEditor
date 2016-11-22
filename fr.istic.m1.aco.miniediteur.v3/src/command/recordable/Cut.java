@@ -18,6 +18,7 @@ public class Cut extends RecordableCommand {
 	public void execute() {
 		editor.editorCut();
 		recorder.add(this);
+		editor.newState();
 	}
 
 	@Override
