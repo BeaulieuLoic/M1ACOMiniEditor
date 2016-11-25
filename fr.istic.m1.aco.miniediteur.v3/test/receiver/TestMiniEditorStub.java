@@ -95,18 +95,34 @@ public class TestMiniEditorStub {
 		
 		RecordableCommand insert = new InsertText(editor, ihm, rec);
 		
+		
+		System.out.println("etat1");
 		insert.execute();
 		rec.startRecord();
+
+		System.out.println("etat2");
 		insert.execute();
+
+		System.out.println("etat3");
 		insert.execute();
 		rec.stopRecord();
 		
+
+		System.out.println("etat4");
 		editor.playRecording();
 		
-		
+		//nombre total d'insert = 5
 		MiniEditor testEditor = new MiniEditorStub(rec);
-		testEditor.getMiniBuffer().insert(0,msgTest+msgTest+msgTest+msgTest+msgTest);
-		testEditor.editorSelect(msgTest.length()*5, msgTest.length()*5);
+
+		testEditor.editorInsert(msgTest);
+		testEditor.newState();
+		testEditor.editorInsert(msgTest);
+		testEditor.newState();
+		testEditor.editorInsert(msgTest);
+		testEditor.newState();
+
+		testEditor.editorInsert(msgTest+msgTest);
+		
 		
 		System.out.println(editor);
 		System.out.println(testEditor);

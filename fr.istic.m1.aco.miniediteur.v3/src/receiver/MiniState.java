@@ -53,12 +53,12 @@ public class MiniState {
 		if (next == null) {
 			if (other.next != null)
 				return false;
-		} else if (!next.equals(other.next))
+		} else if (!next.equals(other.next)) // A changer sinon appel en boucle
 			return false;
 		if (pre == null) {
 			if (other.pre != null)
 				return false;
-		} else if (!pre.equals(other.pre))
+		} else if (!pre.equals(other.pre))// A changer sinon appel en boucle
 			return false;
 		if (sel == null) {
 			if (other.sel != null)

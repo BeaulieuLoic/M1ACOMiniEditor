@@ -10,6 +10,7 @@ import memento.Recorder;
  */
 
 public class MiniEditorStub implements MiniEditor {
+
 	@Override
 	public String toString() {
 		return "MiniEditorStub: \nselector=" + selector + "\nclipboard="
@@ -169,10 +170,10 @@ public class MiniEditorStub implements MiniEditor {
 		selector.setEnd(endModif);
 	}
 
-	public MiniBuffer getMiniBuffer(){
+	public MiniBuffer getMiniBuffer() {
 		return buffer;
 	}
-	
+
 	@Override
 	public String getBuffer() {
 		return buffer.getBuffer().toString();
@@ -214,10 +215,10 @@ public class MiniEditorStub implements MiniEditor {
 	public void playRecording() {
 		recorder.playRecord();
 	}
-	
-	private void update(){
-		buffer=actualState.getBuf();
-		selector=actualState.getSel();
+
+	private void update() {
+		buffer = actualState.getBuf();
+		selector = actualState.getSel();
 	}
 
 	public void undo() throws UndoException {
@@ -242,6 +243,43 @@ public class MiniEditorStub implements MiniEditor {
 	public void newState() {
 		actualState.addNext(buffer, selector);
 		actualState = actualState.getNext();
+		System.out.println("aaaa");
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MiniEditorStub other = (MiniEditorStub) obj;
+		if (actualState == null) {
+			if (other.actualState != null)
+				return false;
+		} else if (!actualState.equals(other.actualState))
+			return false;
+		if (buffer == null) {
+			if (other.buffer != null)
+				return false;
+		} else if (!buffer.equals(other.buffer))
+			return false;
+		if (clipboard == null) {
+			if (other.clipboard != null)
+				return false;
+		} else if (!clipboard.equals(other.clipboard))
+			return false;
+		if (recorder == null) {
+			if (other.recorder != null)
+				return false;
+		} else if (!recorder.equals(other.recorder))
+			return false;
+		if (selector == null) {
+			if (other.selector != null)
+				return false;
+		} else if (!selector.equals(other.selector))
+			return false;
+		return true;
 	}
 
 }

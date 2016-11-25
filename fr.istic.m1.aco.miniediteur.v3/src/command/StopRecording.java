@@ -16,7 +16,6 @@ public class StopRecording implements Command {
 	@Override
 	public void execute() {
 		rec.stopRecord();
-		editor.newState();
 	}
 
 }
