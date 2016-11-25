@@ -36,4 +36,36 @@ public class MiniState {
 		return sel;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MiniState other = (MiniState) obj;
+		if (buf == null) {
+			if (other.buf != null)
+				return false;
+		} else if (!buf.equals(other.buf))
+			return false;
+		if (next == null) {
+			if (other.next != null)
+				return false;
+		} else if (!next.equals(other.next))
+			return false;
+		if (pre == null) {
+			if (other.pre != null)
+				return false;
+		} else if (!pre.equals(other.pre))
+			return false;
+		if (sel == null) {
+			if (other.sel != null)
+				return false;
+		} else if (!sel.equals(other.sel))
+			return false;
+		return true;
+	}
+
 }

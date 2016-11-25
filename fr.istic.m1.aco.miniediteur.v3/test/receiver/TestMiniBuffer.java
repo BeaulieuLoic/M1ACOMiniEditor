@@ -6,8 +6,6 @@ import org.junit.Test;
 
 public class TestMiniBuffer {
 
-	// add "\"" before and after string to test when toString in used
-
 	MiniBuffer buf;
 
 	@Test
@@ -23,14 +21,12 @@ public class TestMiniBuffer {
 		String str = "TestString";
 		buf.insert(0, str);
 		buf.delete(3, 5);
-		
-		
+
 		MiniBuffer bufResult = new MiniBuffer();
 		bufResult.getBuffer().insert(0, str);
 		bufResult.getBuffer().delete(3, 5);
-		
-		assertTrue(buf.equals(bufResult));
 
+		assertTrue(buf.equals(bufResult));
 	}
 
 	@Test
@@ -39,7 +35,11 @@ public class TestMiniBuffer {
 		String str = "TestString";
 		buf.insert(0, str);
 		buf.copy(3, 5);
-		assertTrue(buf.copy(3, 5).equals("tS"));
+
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+
+		assertTrue(buf.copy(3, 5).equals(bufResult.getBuffer().substring(3, 5)));
 	}
 
 	@Test
@@ -47,7 +47,11 @@ public class TestMiniBuffer {
 		buf = new MiniBuffer();
 		String str = "TestString";
 		buf.insert(0, str);
-		assertTrue(buf.toString().equals("\"" + str + "\""));
+
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+
+		assertTrue(buf.equals(bufResult));
 	}
 
 	@Test
@@ -57,16 +61,12 @@ public class TestMiniBuffer {
 		buf.insert(0, str);
 
 		buf.replace(3, 5, "AA");
-		assertTrue(buf.toString().equals("\"" + "TesAAtring" + "\""));
-	}
 
-	@Test
-	public void testGetBuffer() {
-		buf = new MiniBuffer();
-		String str = "TestString";
-		buf.insert(0, str);
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+		bufResult.getBuffer().replace(3, 5, "AA");
 
-		assertTrue(buf.getBuffer().toString().equals(str));
+		assertTrue(buf.equals(bufResult));
 	}
 
 	@Test
@@ -74,7 +74,11 @@ public class TestMiniBuffer {
 		buf = new MiniBuffer();
 		String str = "TestString";
 		buf.insert(0, str);
-		assertTrue(buf.getSize() == str.length());
+
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+
+		assertTrue(buf.getSize() == bufResult.getBuffer().length());
 	}
 
 }
