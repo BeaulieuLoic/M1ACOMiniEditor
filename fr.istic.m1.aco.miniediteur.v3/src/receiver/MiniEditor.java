@@ -79,4 +79,5 @@ public interface MiniEditor {
 	public void redo() throws RedoException;
 
 	public void newState();
+	
 }

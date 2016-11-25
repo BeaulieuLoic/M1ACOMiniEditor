@@ -11,7 +11,7 @@ import command.recordable.InsertText;
 import command.recordable.RecordableCommand;
 
 public class TestMiniEditorStub {
-	MiniEditor editor;
+	MiniEditorStub editor;
 	Recorder rec;
 	String msgTest = "aze ";
 
@@ -96,23 +96,19 @@ public class TestMiniEditorStub {
 		RecordableCommand insert = new InsertText(editor, ihm, rec);
 		
 		
-		System.out.println("etat1");
 		insert.execute();
 		rec.startRecord();
 
-		System.out.println("etat2");
 		insert.execute();
 
-		System.out.println("etat3");
 		insert.execute();
 		rec.stopRecord();
 		
 
-		System.out.println("etat4");
 		editor.playRecording();
 		
 		//nombre total d'insert = 5
-		MiniEditor testEditor = new MiniEditorStub(rec);
+		MiniEditorStub testEditor = new MiniEditorStub(rec);
 
 		testEditor.editorInsert(msgTest);
 		testEditor.newState();
@@ -123,10 +119,7 @@ public class TestMiniEditorStub {
 
 		testEditor.editorInsert(msgTest+msgTest);
 		
-		
-		System.out.println(editor);
-		System.out.println(testEditor);
-		assertTrue(editor.equals(testEditor));
+		assertTrue(editor.equalsSansEtat(testEditor));
 	}
 	
 	

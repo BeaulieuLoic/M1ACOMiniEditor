@@ -246,6 +246,13 @@ public class MiniEditorStub implements MiniEditor {
 		System.out.println("aaaa");
 	}
 
+	public boolean equalsSansEtat(MiniEditorStub edit){
+		return buffer.equals(edit.buffer) 
+				&& clipboard.equals(edit.clipboard)
+				&& recorder.equals(edit.recorder)
+				&& selector.equals(edit.selector);
+	}
+	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
