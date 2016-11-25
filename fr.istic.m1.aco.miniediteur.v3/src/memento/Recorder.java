@@ -11,7 +11,6 @@ import command.CommandMemento;
 import command.recordable.RecordableCommand;
 
 public class Recorder {
-
 	private String nom;
 	private boolean isRecording;
 	private List<CommandMemento> listCommand;
@@ -42,5 +41,34 @@ public class Recorder {
 			commandMemento.getCommand().executeRecord(
 					commandMemento.getMemento());
 		}
+	}
+	
+	protected List<CommandMemento> getListCommand(){
+		return listCommand;
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Recorder other = (Recorder) obj;
+		if (isRecording != other.isRecording)
+			return false;
+		if (listCommand == null) {
+			if (other.listCommand != null)
+				return false;
+		} else if (!listCommand.equals(other.listCommand))
+			return false;
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
+			return false;
+		return true;
 	}
 }
