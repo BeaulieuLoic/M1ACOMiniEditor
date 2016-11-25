@@ -70,7 +70,7 @@ public class MiniEditorTextInterface implements MiniIHM {
 				break;
 			case 'I': /* Insert */
 				if (inputLine.length() > 1) {
-					insertText = inputLine.substring(2);
+					setText(inputLine.substring(2));
 					insert.execute();
 				}else{
 					System.out.println("problem insert, parameter missing");
@@ -229,8 +229,11 @@ public class MiniEditorTextInterface implements MiniIHM {
 
 	@Override
 	public String getText() {
-
 		return insertText;
+	}
+	
+	public void setText(String str){
+		insertText = str;
 	}
 
 }
