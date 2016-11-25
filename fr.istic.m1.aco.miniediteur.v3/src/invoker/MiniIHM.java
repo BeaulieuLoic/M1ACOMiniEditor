@@ -33,4 +33,6 @@ public interface MiniIHM {
 
 	public String getText();
 
+	public void setText(String str);
+
 }

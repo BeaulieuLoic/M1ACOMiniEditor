@@ -1,14 +1,19 @@
 package receiver;
 
 import static org.junit.Assert.*;
+import invoker.MiniEditorTextInterface;
+import invoker.MiniIHM;
 import memento.Recorder;
 
 import org.junit.Test;
 
+import command.recordable.InsertText;
+import command.recordable.RecordableCommand;
+
 public class TestMiniEditorStub {
 	MiniEditor editor;
 	Recorder rec;
-	String msgTest = "azerty";
+	String msgTest = "aze ";
 
 	@Test
 	public void testEditorCopy() {
@@ -77,23 +82,38 @@ public class TestMiniEditorStub {
 		editor.editorSelect(0, 50);
 		System.out.println(editor);
 
-		assertTrue(editor.getBuffer().equals(editor.getSelection()));
+		assertTrue(editor.equals(editor));
 	}
 	
 	@Test
-	public void testRecording() {
-		System.out.println("----- testEditorRecord -----");
+	public void testPlayRecording() {
+		System.out.println("----- testPlayRecording -----");
 		rec = new Recorder();
 		editor = new MiniEditorStub(rec);
-		editor.editorInsert(msgTest);
-
-		editor.startRecording();
-		editor.editorInsert(msgTest);
-		editor.stopRecording();
+		MiniIHM ihm = new MiniEditorTextInterface(editor);
+		ihm.setText(msgTest);
+		
+		RecordableCommand insert = new InsertText(editor, ihm, rec);
+		
+		insert.execute();
+		rec.startRecord();
+		insert.execute();
+		insert.execute();
+		rec.stopRecord();
+		
 		editor.playRecording();
+		
+		
+		MiniEditor testEditor = new MiniEditorStub(rec);
+		testEditor.getMiniBuffer().insert(0,msgTest+msgTest+msgTest+msgTest+msgTest);
+		testEditor.editorSelect(msgTest.length()*5, msgTest.length()*5);
+		
 		System.out.println(editor);
-
-		assertTrue(editor.getBuffer().equals(msgTest + msgTest));
+		System.out.println(testEditor);
+		assertTrue(editor.equals(testEditor));
 	}
+	
+	
+	
 
 }

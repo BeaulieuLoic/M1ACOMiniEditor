@@ -59,17 +59,5 @@ public class RecorderTest {
 		
 		assertTrue(recorder.equals(testRec));
 	}
-	
-
-	@Test
-	public void testPlayRecord() {
-		recorder = new Recorder();
-		editor = new MiniEditorStub(recorder);
-		ihm = new MiniEditorTextInterface(editor);
-		
-		RecordableCommand insert = new InsertText(editor, ihm, recorder);
-		
-		fail("Not yet implemented");
-	}
 
 }

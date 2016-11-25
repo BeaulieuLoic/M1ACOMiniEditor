@@ -56,6 +56,8 @@ public interface MiniEditor {
 
 	public void editorSelect(int parameter, int parameter2);
 
+	public MiniBuffer getMiniBuffer();
+
 	public String getBuffer();
 
 	public String getClipboard();
@@ -67,11 +69,11 @@ public interface MiniEditor {
 	public int getEnd();
 
 	public void startRecording();
-	
+
 	public void stopRecording();
-	
+
 	public void playRecording();
-	
+
 	public void undo() throws UndoException;
 
 	public void redo() throws RedoException;

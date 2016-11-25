@@ -169,6 +169,10 @@ public class MiniEditorStub implements MiniEditor {
 		selector.setEnd(endModif);
 	}
 
+	public MiniBuffer getMiniBuffer(){
+		return buffer;
+	}
+	
 	@Override
 	public String getBuffer() {
 		return buffer.getBuffer().toString();
