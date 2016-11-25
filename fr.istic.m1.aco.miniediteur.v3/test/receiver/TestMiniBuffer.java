@@ -23,7 +23,13 @@ public class TestMiniBuffer {
 		String str = "TestString";
 		buf.insert(0, str);
 		buf.delete(3, 5);
-		assertTrue(buf.toString().equals("\"" + "Testring" + "\""));
+		
+		
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+		bufResult.getBuffer().delete(3, 5);
+		
+		assertTrue(buf.equals(bufResult));
 
 	}
 

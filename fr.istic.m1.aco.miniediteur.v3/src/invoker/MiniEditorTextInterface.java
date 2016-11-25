@@ -69,8 +69,15 @@ public class MiniEditorTextInterface implements MiniIHM {
 			case '0':
 				break;
 			case 'I': /* Insert */
-				insertText = inputLine.substring(2);
-				insert.execute();
+				if (inputLine.length() > 1) {
+					insertText = inputLine.substring(2);
+					insert.execute();
+				}else{
+					System.out.println("problem insert, parameter missing");
+				}
+				
+				
+
 				break;
 			case 'S': /* Select */
 				String numberString = "";
