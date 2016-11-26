@@ -3,9 +3,9 @@ package receiver;
 import static org.junit.Assert.*;
 import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
-import memento.Recorder;
 import receiver.exception.RedoException;
 import receiver.exception.UndoException;
+import recorde.Recorder;
 
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package command;
 
 import receiver.MiniEditor;
-import memento.Recorder;
+import recorde.Recorder;
 
 public class StopRecording implements Command {
 

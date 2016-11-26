@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import memento.Recorder;
 import receiver.MiniEditorStub;
+import recorde.Recorder;
 
 public class TestRedoException {
 	MiniEditorStub editor;

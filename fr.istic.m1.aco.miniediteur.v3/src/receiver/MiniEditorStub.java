@@ -1,7 +1,7 @@
 package receiver;
 
 import receiver.exception.*;
-import memento.Recorder;
+import recorde.Recorder;
 
 /**
  * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -247,7 +247,6 @@ public class MiniEditorStub implements MiniEditor {
 	public void newState() {
 		actualState.addNext(buffer, selector);
 		actualState = actualState.getNext();
-		System.out.println("aaaa");
 	}
 
 	public boolean equalsSansEtat(MiniEditorStub edit){

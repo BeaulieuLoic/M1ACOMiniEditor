@@ -1,4 +1,4 @@
-package memento;
+package recorde;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import memento.MementoSave;
 import command.Command;
-import command.CommandMemento;
 import command.recordable.RecordableCommand;
 
 public class Recorder {
@@ -23,7 +23,7 @@ public class Recorder {
 
 	public void add(RecordableCommand c) {
 		if (isRecording) {
-			listCommand.add(new CommandMemento(c, c.getMemento()));
+			listCommand.add(new CommandMemento(c, new MementoSave(c.createMemento())));
 		}
 	}
 
@@ -39,7 +39,7 @@ public class Recorder {
 	public void playRecord() {
 		for (CommandMemento commandMemento : listCommand) {
 			commandMemento.getCommand().executeRecord(
-					commandMemento.getMemento());
+					commandMemento.getMemento().getState());
 		}
 	}
 	

@@ -1,14 +1,16 @@
-package memento;
+package recorde;
 
 import static org.junit.Assert.*;
 import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
+import memento.MementoSave;
 
 import org.junit.Test;
 
 import receiver.MiniEditor;
 import receiver.MiniEditorStub;
-import command.CommandMemento;
+import recorde.CommandMemento;
+import recorde.Recorder;
 import command.recordable.InsertText;
 import command.recordable.RecordableCommand;
 
@@ -54,7 +56,7 @@ public class RecorderTest {
 		
 		
 		Recorder testRec = new Recorder();
-		CommandMemento mem = new CommandMemento(insert, insert.getMemento());
+		CommandMemento mem = new CommandMemento(insert, new MementoSave(insert.createMemento()));
 		testRec.getListCommand().add(mem);
 		
 		assertTrue(recorder.equals(testRec));

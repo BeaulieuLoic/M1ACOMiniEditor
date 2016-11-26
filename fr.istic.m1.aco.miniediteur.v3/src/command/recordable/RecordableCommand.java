@@ -1,18 +1,25 @@
 package command.recordable;
 
+import recorde.Recorder;
 import command.Command;
 import memento.Memento;
 import memento.MementoState;
 
-public abstract class RecordableCommand implements Command, Memento {
+public abstract class RecordableCommand implements Command {
 
 	protected MementoState mem;
-
-	@Override
-	public void setMemento(MementoState mem) {
-		this.mem = mem;
+	protected Recorder recorder;
+	
+	public RecordableCommand(Recorder rec){
+		recorder = rec;
 	}
 
+	public void setMemento(Memento mem) {
+		this.mem = mem.getState();
+	}
+
+	public abstract Memento createMemento();
+	
 	public abstract void executeRecord(MementoState mem);
 
 	@Override

@@ -3,10 +3,11 @@
  */
 package command.recordable;
 
+import memento.Memento;
 import memento.MementoState;
-import memento.Recorder;
 import invoker.MiniIHM;
 import receiver.MiniEditor;
+import recorde.Recorder;
 
 /**
  * @author Loic_Beaulieu
@@ -16,12 +17,11 @@ public class ModifSelector extends RecordableCommand {
 
 	private MiniEditor editor;
 	private MiniIHM ihm;
-	private Recorder recorder;
 	
 	public ModifSelector(MiniEditor e, MiniIHM i, Recorder r) {
+		super(r);
 		editor = e;
 		ihm = i;
-		recorder = r;
 		
 	}
 
@@ -37,10 +37,8 @@ public class ModifSelector extends RecordableCommand {
 		editor.newState();
 	}
 
-	@Override
-	public MementoState getMemento() {
-		setMemento(new MementoState(editor.getStart(), editor.getEnd(), ""));
-		return mem;
+	public Memento createMemento() {
+		return new Memento(new MementoState(editor.getStart(), editor.getEnd(), ""));
 	}
 
 	@Override

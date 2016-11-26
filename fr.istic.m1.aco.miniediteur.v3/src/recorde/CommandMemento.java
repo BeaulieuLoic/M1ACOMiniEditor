@@ -1,6 +1,8 @@
-package command;
+package recorde;
 
 import command.recordable.RecordableCommand;
+import memento.Memento;
+import memento.MementoSave;
 import memento.MementoState;
 
 public class CommandMemento {
@@ -8,19 +10,19 @@ public class CommandMemento {
 
 
 	private RecordableCommand command;
-	private MementoState mem;
+	private MementoSave save;
 	
-	public CommandMemento(RecordableCommand c,MementoState m){
+	public CommandMemento(RecordableCommand c,MementoSave m){
 		this.command=c;
-		this.mem=m;
+		this.save=m;
 	}
 	
 	public RecordableCommand getCommand(){
 		return command;
 	}
 	
-	public MementoState getMemento(){
-		return mem;
+	public Memento getMemento(){
+		return save.getMemento();
 	}
 	
 	@Override
@@ -37,10 +39,10 @@ public class CommandMemento {
 				return false;
 		} else if (!command.equals(other.command))
 			return false;
-		if (mem == null) {
-			if (other.mem != null)
+		if (save == null) {
+			if (other.save != null)
 				return false;
-		} else if (!mem.equals(other.mem))
+		} else if (!save.equals(other.save))
 			return false;
 		return true;
 	}

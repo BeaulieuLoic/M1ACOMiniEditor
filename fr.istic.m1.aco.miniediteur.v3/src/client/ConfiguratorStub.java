@@ -3,8 +3,8 @@ package client;
 import java.util.HashMap;
 import java.util.Map;
 
-import memento.Recorder;
 import receiver.*;
+import recorde.Recorder;
 import command.*;
 import command.recordable.Copy;
 import command.recordable.Cut;
