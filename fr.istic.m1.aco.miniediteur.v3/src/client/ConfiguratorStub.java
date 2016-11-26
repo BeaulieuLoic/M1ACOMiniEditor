@@ -26,7 +26,7 @@ public class ConfiguratorStub {
 
 		Recorder rec = new Recorder();
 
-		MiniEditor editor = new MiniEditorStub(rec);
+		MiniEditor editor = new MiniEditorStub();
 		MiniIHM ihm = new MiniEditorTextInterface(editor);
 
 		Command copy = new Copy(editor, rec);
@@ -47,7 +47,7 @@ public class ConfiguratorStub {
 		Command removeSelect = new RemoveSelect(editor, rec);
 		ihm.setRemoveSelect(removeSelect);
 
-		Command stopRecording = new StopRecording(editor, rec);
+		Command stopRecording = new StopRecording(rec);
 		ihm.setStopRecording(stopRecording);
 
 		Command playRecording = new PlayRecording(editor, rec);

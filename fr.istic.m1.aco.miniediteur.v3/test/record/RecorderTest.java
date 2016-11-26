@@ -1,4 +1,4 @@
-package recorde;
+package record;
 
 import static org.junit.Assert.*;
 import invoker.MiniEditorTextInterface;
@@ -25,7 +25,7 @@ public class RecorderTest {
 	@Test
 	public void testAdd1() {
 		recorder = new Recorder();
-		editor = new MiniEditorStub(recorder);
+		editor = new MiniEditorStub();
 		ihm = new MiniEditorTextInterface(editor);
 		
 		RecordableCommand insert = new InsertText(editor, ihm, recorder);
@@ -43,7 +43,7 @@ public class RecorderTest {
 	@Test
 	public void testAdd2() {
 		recorder = new Recorder();
-		editor = new MiniEditorStub(recorder);
+		editor = new MiniEditorStub();
 		ihm = new MiniEditorTextInterface(editor);
 
 		RecordableCommand insert = new InsertText(editor, ihm, recorder);

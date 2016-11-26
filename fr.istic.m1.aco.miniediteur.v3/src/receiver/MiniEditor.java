@@ -68,12 +68,6 @@ public interface MiniEditor {
 
 	public int getEnd();
 
-	public void startRecording();
-
-	public void stopRecording();
-
-	public void playRecording();
-
 	public void undo() throws UndoException;
 
 	public void redo() throws RedoException;

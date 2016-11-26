@@ -6,11 +6,9 @@ import record.Recorder;
 public class StopRecording implements Command {
 
 	private Recorder rec;
-	private MiniEditor editor;
 
-	public StopRecording(MiniEditor e,Recorder r) {
+	public StopRecording(Recorder r) {
 		rec = r;
-		editor = e;
 	}
 
 	@Override

@@ -50,16 +50,14 @@ public class MiniEditorStub implements MiniEditor {
 	 * @generated
 	 */
 
-	private Recorder recorder;
 
 	private MiniState actualState;
 
-	public MiniEditorStub(Recorder r) {
+	public MiniEditorStub() {
 		super();
 		buffer = new MiniBuffer();
 		clipboard = new MiniClipboard();
 		selector = new Selector();
-		recorder = r;
 		actualState = new MiniState(buffer, selector);
 	}
 
@@ -201,21 +199,6 @@ public class MiniEditorStub implements MiniEditor {
 		return selector.getEnd();
 	}
 
-	@Override
-	public void startRecording() {
-		recorder.startRecord();
-	}
-
-	@Override
-	public void stopRecording() {
-		recorder.stopRecord();
-	}
-
-	@Override
-	public void playRecording() {
-		recorder.playRecord();
-	}
-
 	private void update() {
 		buffer = actualState.getBuf();
 		selector = actualState.getSel();
@@ -252,7 +235,6 @@ public class MiniEditorStub implements MiniEditor {
 	public boolean equalsSansEtat(MiniEditorStub edit){
 		return buffer.equals(edit.buffer) 
 				&& clipboard.equals(edit.clipboard)
-				&& recorder.equals(edit.recorder)
 				&& selector.equals(edit.selector);
 	}
 	
@@ -278,11 +260,6 @@ public class MiniEditorStub implements MiniEditor {
 			if (other.clipboard != null)
 				return false;
 		} else if (!clipboard.equals(other.clipboard))
-			return false;
-		if (recorder == null) {
-			if (other.recorder != null)
-				return false;
-		} else if (!recorder.equals(other.recorder))
 			return false;
 		if (selector == null) {
 			if (other.selector != null)

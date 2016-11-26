@@ -15,7 +15,7 @@ public class TestRedoException {
 	public void TestRedo() throws RedoException {
 
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		editor = new MiniEditorStub();
 
 		editor.redo();
 

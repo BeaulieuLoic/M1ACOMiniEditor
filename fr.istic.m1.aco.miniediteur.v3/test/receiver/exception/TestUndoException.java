@@ -20,7 +20,7 @@ public class TestUndoException {
 	public void TestUndo() throws UndoException{
 
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		editor = new MiniEditorStub();
 
 		editor.undo();
 
