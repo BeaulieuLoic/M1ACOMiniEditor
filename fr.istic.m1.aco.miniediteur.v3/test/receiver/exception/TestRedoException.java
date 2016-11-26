@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import receiver.MiniEditorStub;
-import recorde.Recorder;
+import record.Recorder;
 
 public class TestRedoException {
 	MiniEditorStub editor;

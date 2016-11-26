@@ -1,6 +1,6 @@
 package command.recordable;
 
-import recorde.Recorder;
+import record.Recorder;
 import command.Command;
 import memento.Memento;
 import memento.MementoState;

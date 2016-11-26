@@ -1,6 +1,6 @@
 package command;
 
-import recorde.Recorder;
+import record.Recorder;
 
 public class PlayRecording implements Command {
 	private Recorder rec;

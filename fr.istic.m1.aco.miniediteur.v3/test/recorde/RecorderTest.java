@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import receiver.MiniEditor;
 import receiver.MiniEditorStub;
-import recorde.CommandMemento;
-import recorde.Recorder;
+import record.CommandMemento;
+import record.Recorder;
 import command.recordable.InsertText;
 import command.recordable.RecordableCommand;
 

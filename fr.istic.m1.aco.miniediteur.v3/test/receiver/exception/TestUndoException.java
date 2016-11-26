@@ -10,7 +10,7 @@ import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
 import receiver.MiniEditorStub;
 import receiver.MiniState;
-import recorde.Recorder;
+import record.Recorder;
 
 public class TestUndoException {
 	MiniEditorStub editor;

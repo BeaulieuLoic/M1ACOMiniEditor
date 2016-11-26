@@ -5,7 +5,7 @@ import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
 import receiver.exception.RedoException;
 import receiver.exception.UndoException;
-import recorde.Recorder;
+import record.Recorder;
 
 import org.junit.Test;
 

@@ -7,7 +7,7 @@ import memento.Memento;
 import memento.MementoState;
 import invoker.MiniIHM;
 import receiver.MiniEditor;
-import recorde.Recorder;
+import record.Recorder;
 
 /**
  * @author Loic_Beaulieu

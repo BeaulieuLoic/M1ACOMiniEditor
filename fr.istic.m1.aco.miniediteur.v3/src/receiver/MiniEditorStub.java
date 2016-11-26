@@ -1,7 +1,7 @@
 package receiver;
 
 import receiver.exception.*;
-import recorde.Recorder;
+import record.Recorder;
 
 /**
  * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -1,6 +1,6 @@
 package command;
 
-import recorde.Recorder;
+import record.Recorder;
 
 public class StopRecording implements Command {
 

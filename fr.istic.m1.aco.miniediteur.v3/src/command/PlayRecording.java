@@ -1,7 +1,7 @@
 package command;
 
 import receiver.MiniEditor;
-import recorde.Recorder;
+import record.Recorder;
 
 public class PlayRecording implements Command {
 	private Recorder rec;

@@ -1,7 +1,7 @@
 package receiver;
 
 import static org.junit.Assert.*;
-import memento.Recorder;
+import record.Recorder;
 
 import org.junit.Test;
 

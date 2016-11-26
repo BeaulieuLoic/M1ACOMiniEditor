@@ -1,4 +1,4 @@
-package recorde;
+package record;
 
 import command.recordable.RecordableCommand;
 import memento.Memento;

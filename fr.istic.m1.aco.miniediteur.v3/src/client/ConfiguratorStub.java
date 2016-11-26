@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import receiver.*;
-import recorde.Recorder;
+import record.Recorder;
 import command.*;
 import command.recordable.Copy;
 import command.recordable.Cut;

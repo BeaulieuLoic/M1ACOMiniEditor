@@ -3,7 +3,7 @@ package command.recordable;
 import memento.Memento;
 import memento.MementoState;
 import receiver.MiniEditor;
-import recorde.Recorder;
+import record.Recorder;
 
 public class Cut extends RecordableCommand {
 
