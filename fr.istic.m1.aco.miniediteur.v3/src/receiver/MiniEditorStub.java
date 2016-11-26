@@ -221,6 +221,10 @@ public class MiniEditorStub implements MiniEditor {
 		selector = actualState.getSel();
 	}
 
+	protected MiniState getState(){
+		return this.actualState;
+	}
+	
 	public void undo() throws UndoException {
 		if (actualState.getPre() == null) {
 			throw new UndoException("No previous state");

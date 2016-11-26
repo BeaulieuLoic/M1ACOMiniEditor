@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
 import memento.Recorder;
+import receiver.exception.RedoException;
+import receiver.exception.UndoException;
 
 import org.junit.Test;
 
@@ -84,7 +86,7 @@ public class TestMiniEditorStub {
 
 		assertTrue(editor.equals(editor));
 	}
-	
+
 	@Test
 	public void testPlayRecording() {
 		System.out.println("----- testPlayRecording -----");
@@ -92,10 +94,9 @@ public class TestMiniEditorStub {
 		editor = new MiniEditorStub(rec);
 		MiniIHM ihm = new MiniEditorTextInterface(editor);
 		ihm.setText(msgTest);
-		
+
 		RecordableCommand insert = new InsertText(editor, ihm, rec);
-		
-		
+
 		insert.execute();
 		rec.startRecord();
 
@@ -103,11 +104,10 @@ public class TestMiniEditorStub {
 
 		insert.execute();
 		rec.stopRecord();
-		
 
 		editor.playRecording();
-		
-		//nombre total d'insert = 5
+
+		// nombre total d'insert = 5
 		MiniEditorStub testEditor = new MiniEditorStub(rec);
 
 		testEditor.editorInsert(msgTest);
@@ -117,12 +117,59 @@ public class TestMiniEditorStub {
 		testEditor.editorInsert(msgTest);
 		testEditor.newState();
 
-		testEditor.editorInsert(msgTest+msgTest);
-		
+		testEditor.editorInsert(msgTest + msgTest);
+
 		assertTrue(editor.equalsSansEtat(testEditor));
 	}
-	
-	
-	
+
+	@Test
+	public void testUndo() {
+		System.out.println("----- testUndo -----");
+		rec = new Recorder();
+		editor = new MiniEditorStub(rec);
+		MiniIHM ihm = new MiniEditorTextInterface(editor);
+
+		ihm.setText(msgTest);
+		RecordableCommand insert = new InsertText(editor, ihm, rec);
+
+		MiniState firstState = editor.getState();
+
+		insert.execute();
+
+		try {
+			editor.undo();
+		} catch (UndoException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println(editor);
+		assertTrue(firstState.equals(editor.getState()));
+
+	}
+
+	@Test
+	public void testRedo() {
+		System.out.println("----- testRedo -----");
+		rec = new Recorder();
+		editor = new MiniEditorStub(rec);
+		MiniIHM ihm = new MiniEditorTextInterface(editor);
+
+		ihm.setText(msgTest);
+		RecordableCommand insert = new InsertText(editor, ihm, rec);
+
+		insert.execute();
+
+		MiniState secondState = editor.getState();
+
+		try {
+			editor.undo();
+			editor.redo();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		System.out.println(editor);
+		assertTrue(secondState.equals(editor.getState()));
+	}
 
 }
