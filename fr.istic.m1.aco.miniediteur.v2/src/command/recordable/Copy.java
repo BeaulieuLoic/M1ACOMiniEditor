@@ -1,17 +1,17 @@
 package command.recordable;
 
+import memento.Memento;
 import memento.MementoState;
-import memento.Recorder;
 import receiver.MiniEditor;
+import recorde.Recorder;
 
 public class Copy extends RecordableCommand {
 
 	private MiniEditor editor;
-	private Recorder recorder;
 
 	public Copy(MiniEditor e, Recorder r) {
+		super(r);
 		editor = e;
-		recorder = r;
 	}
 
 	@Override
@@ -20,10 +20,8 @@ public class Copy extends RecordableCommand {
 		recorder.add(this);
 	}
 
-	@Override
-	public MementoState getMemento() {
-		setMemento(new MementoState(editor.getStart(), editor.getEnd(), editor.getClipboard()));
-		return mem;
+	public Memento createMemento() {
+		return new Memento(new MementoState(editor.getStart(), editor.getEnd(), editor.getClipboard()));
 	}
 
 	@Override

@@ -1,21 +1,20 @@
 package command.recordable;
 
+import memento.Memento;
 import memento.MementoState;
-import memento.Recorder;
 import invoker.MiniIHM;
 import receiver.MiniEditor;
+import recorde.Recorder;
 
 public class InsertText extends RecordableCommand {
 
 	private MiniEditor editor;
 	private MiniIHM ihm;
-	private Recorder recorder;
 	
 	public InsertText(MiniEditor e, MiniIHM i, Recorder r){
+		super(r);
 		editor = e;
-		ihm = i;
-		recorder = r;
-		
+		ihm = i;		
 	}
 	
 	@Override
@@ -24,10 +23,8 @@ public class InsertText extends RecordableCommand {
 		recorder.add(this);
 	}
 	
-	@Override
-	public MementoState getMemento() {
-		setMemento(new MementoState(editor.getStart(), editor.getEnd(), ihm.getText()));
-		return mem;
+	public Memento createMemento() {
+		return new Memento(new MementoState(editor.getStart(), editor.getEnd(), ihm.getText()));
 	}	
 
 	@Override

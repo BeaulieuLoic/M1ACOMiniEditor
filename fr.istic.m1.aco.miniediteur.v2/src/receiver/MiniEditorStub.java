@@ -1,6 +1,6 @@
 package receiver;
 
-import memento.Recorder;
+import recorde.Recorder;
 
 /**
  * <!-- begin-user-doc --> <!-- end-user-doc -->

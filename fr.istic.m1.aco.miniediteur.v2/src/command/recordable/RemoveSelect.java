@@ -1,18 +1,18 @@
 package command.recordable;
 
+import memento.Memento;
 import memento.MementoState;
-import memento.Recorder;
 import invoker.MiniIHM;
 import receiver.MiniEditor;
+import recorde.Recorder;
 
 public class RemoveSelect extends RecordableCommand {
 
 	private MiniEditor editor;
-	private Recorder recorder;
 	
 	public RemoveSelect(MiniEditor e, Recorder r){
+		super(r);
 		editor = e;
-		recorder = r;
 	}
 	
 	@Override
@@ -21,10 +21,8 @@ public class RemoveSelect extends RecordableCommand {
 		recorder.add(this);
 	}
 	
-	@Override
-	public MementoState getMemento() {
-		setMemento(new MementoState(editor.getStart(), editor.getEnd(),""));
-		return mem;
+	public Memento createMemento() {
+		return new Memento(new MementoState(editor.getStart(), editor.getEnd(),""));
 	}
 
 	@Override
