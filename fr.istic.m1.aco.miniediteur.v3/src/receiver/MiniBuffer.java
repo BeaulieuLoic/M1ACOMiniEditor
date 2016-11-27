@@ -11,23 +11,6 @@ import java.lang.StringBuffer;
 
 public class MiniBuffer {
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MiniBuffer other = (MiniBuffer) obj;
-		if (buffer == null) {
-			if (other.buffer != null)
-				return false;
-		} else if (!buffer.toString().equals(other.buffer.toString()))// utilise toString car equals pas implémenté dans StringBuffer
-			return false;
-		return true;
-	}
-
 	private StringBuffer buffer;
 
 	/**
@@ -114,5 +97,22 @@ public class MiniBuffer {
 		return "\""+buffer.toString()+"\"";
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MiniBuffer other = (MiniBuffer) obj;
+		if (buffer == null) {
+			if (other.buffer != null)
+				return false;
+		} else if (!buffer.toString().equals(other.buffer.toString()))// utilise toString car equals pas implémenté dans StringBuffer
+			return false;
+		return true;
+	}
+
 
 }

@@ -4,9 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+
 public class TestMiniEditorStub {
-	MiniEditor editor;
-	String msgTest = "azerty";
+	MiniEditorStub editor;
+	String msgTest = "aze ";
 
 	@Test
 	public void testEditorCopy() {
@@ -16,7 +17,8 @@ public class TestMiniEditorStub {
 		editor.editorSelect(0, 500);
 		editor.editorCopy();
 
-		assertTrue(editor.getClipboard().equals(editor.getBuffer()));
+		assertEquals(editor.getClipboard(),editor.getBuffer());
+
 		System.out.println(editor);
 	}
 
@@ -29,7 +31,8 @@ public class TestMiniEditorStub {
 		editor.editorCut();
 		System.out.println(editor);
 
-		assertTrue(editor.getClipboard().equals(msgTest) && editor.getBuffer().equals(""));
+		assertEquals(editor.getClipboard(),msgTest);
+		assertEquals(editor.getBuffer(),"");
 	}
 
 	@Test
@@ -43,8 +46,8 @@ public class TestMiniEditorStub {
 		editor.editorPaste();
 		editor.editorPaste();
 		System.out.println(editor);
-
-		assertTrue(editor.getBuffer().equals(msgTest + msgTest + msgTest));
+		
+		assertEquals(editor.getBuffer(),(msgTest + msgTest + msgTest));
 	}
 
 	@Test
@@ -58,7 +61,8 @@ public class TestMiniEditorStub {
 		editor.editorInsert("a");
 		System.out.println(editor);
 
-		assertTrue(editor.getBuffer().equals("a"));
+		assertEquals(editor.getBuffer(),"a");
+
 	}
 
 	@Test
@@ -69,7 +73,9 @@ public class TestMiniEditorStub {
 		editor.editorSelect(0, 50);
 		System.out.println(editor);
 
-		assertTrue(editor.getBuffer().equals(editor.getSelection()));
+		assertEquals(editor,editor);
 	}
 
+
+	
 }

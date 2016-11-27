@@ -6,15 +6,14 @@ import org.junit.Test;
 
 public class TestMiniBuffer {
 
-	// add "\"" before and after string to test when toString in used
-
 	MiniBuffer buf;
 
 	@Test
 	public void testMiniBuffer() {
 		buf = new MiniBuffer();
 
-		assertTrue(buf != null && buf.getBuffer() != null);
+		assertNotNull(buf);
+		assertNotNull(buf.getBuffer());
 	}
 
 	@Test
@@ -23,8 +22,12 @@ public class TestMiniBuffer {
 		String str = "TestString";
 		buf.insert(0, str);
 		buf.delete(3, 5);
-		assertTrue(buf.toString().equals("\"" + "Testring" + "\""));
 
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+		bufResult.getBuffer().delete(3, 5);
+
+		assertEquals(buf, bufResult);
 	}
 
 	@Test
@@ -33,7 +36,11 @@ public class TestMiniBuffer {
 		String str = "TestString";
 		buf.insert(0, str);
 		buf.copy(3, 5);
-		assertTrue(buf.copy(3, 5).equals("tS"));
+
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+
+		assertEquals(buf.copy(3, 5), (bufResult.getBuffer().substring(3, 5)));
 	}
 
 	@Test
@@ -41,7 +48,11 @@ public class TestMiniBuffer {
 		buf = new MiniBuffer();
 		String str = "TestString";
 		buf.insert(0, str);
-		assertTrue(buf.toString().equals("\"" + str + "\""));
+
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+
+		assertEquals(buf, bufResult);
 	}
 
 	@Test
@@ -51,16 +62,12 @@ public class TestMiniBuffer {
 		buf.insert(0, str);
 
 		buf.replace(3, 5, "AA");
-		assertTrue(buf.toString().equals("\"" + "TesAAtring" + "\""));
-	}
 
-	@Test
-	public void testGetBuffer() {
-		buf = new MiniBuffer();
-		String str = "TestString";
-		buf.insert(0, str);
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+		bufResult.getBuffer().replace(3, 5, "AA");
 
-		assertTrue(buf.getBuffer().toString().equals(str));
+		assertEquals(buf, bufResult);
 	}
 
 	@Test
@@ -68,7 +75,11 @@ public class TestMiniBuffer {
 		buf = new MiniBuffer();
 		String str = "TestString";
 		buf.insert(0, str);
-		assertTrue(buf.getSize() == str.length());
+
+		MiniBuffer bufResult = new MiniBuffer();
+		bufResult.getBuffer().insert(0, str);
+
+		assertEquals(buf.getSize(), bufResult.getBuffer().length());
 	}
 
 }
