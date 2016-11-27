@@ -120,7 +120,9 @@ public class TestMiniEditorStub {
 
 		testEditor.editorInsert(msgTest + msgTest);
 
-		assertTrue(editor.equalsSansEtat(testEditor));
+		assertEquals(editor.getSelection(),testEditor.getSelection());
+		assertEquals(editor.getClipboard(), testEditor.getClipboard());
+		assertEquals(editor.getBuffer(),testEditor.getBuffer());
 	}
 
 	@Test

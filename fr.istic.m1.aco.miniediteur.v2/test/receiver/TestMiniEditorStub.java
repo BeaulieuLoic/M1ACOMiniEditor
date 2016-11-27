@@ -1,14 +1,19 @@
 package receiver;
 
 import static org.junit.Assert.*;
+import invoker.MiniEditorTextInterface;
+import invoker.MiniIHM;
 import record.Recorder;
 
 import org.junit.Test;
 
+import command.recordable.InsertText;
+import command.recordable.RecordableCommand;
+
 public class TestMiniEditorStub {
-	MiniEditor editor;
+	MiniEditorStub editor;
 	Recorder rec;
-	String msgTest = "azerty";
+	String msgTest = "aze ";
 
 	@Test
 	public void testEditorCopy() {
@@ -19,7 +24,8 @@ public class TestMiniEditorStub {
 		editor.editorSelect(0, 500);
 		editor.editorCopy();
 
-		assertTrue(editor.getClipboard().equals(editor.getBuffer()));
+		assertEquals(editor.getClipboard(),editor.getBuffer());
+
 		System.out.println(editor);
 	}
 
@@ -33,7 +39,8 @@ public class TestMiniEditorStub {
 		editor.editorCut();
 		System.out.println(editor);
 
-		assertTrue(editor.getClipboard().equals(msgTest) && editor.getBuffer().equals(""));
+		assertEquals(editor.getClipboard(),msgTest);
+		assertEquals(editor.getBuffer(),"");
 	}
 
 	@Test
@@ -48,8 +55,8 @@ public class TestMiniEditorStub {
 		editor.editorPaste();
 		editor.editorPaste();
 		System.out.println(editor);
-
-		assertTrue(editor.getBuffer().equals(msgTest + msgTest + msgTest));
+		
+		assertEquals(editor.getBuffer(),(msgTest + msgTest + msgTest));
 	}
 
 	@Test
@@ -64,7 +71,7 @@ public class TestMiniEditorStub {
 		editor.editorInsert("a");
 		System.out.println(editor);
 
-		assertTrue(editor.getBuffer().equals("a"));
+		assertEquals(editor.getBuffer(),"a");
 
 	}
 
@@ -77,24 +84,45 @@ public class TestMiniEditorStub {
 		editor.editorSelect(0, 50);
 		System.out.println(editor);
 
-		assertTrue(editor.getBuffer().equals(editor.getSelection()));
+		assertEquals(editor,editor);
 	}
 
 	@Test
-	public void testRecording() {
-		System.out.println("----- testEditorRecord -----");
+	public void testPlayRecording() {
+		System.out.println("----- testPlayRecording -----");
 		rec = new Recorder();
 		editor = new MiniEditorStub(rec);
-		editor.editorInsert(msgTest);
+		MiniIHM ihm = new MiniEditorTextInterface(editor);
+		ihm.setText(msgTest);
 
-		editor.startRecording();
-		editor.editorInsert(msgTest);
-		editor.stopRecording();
+		RecordableCommand insert = new InsertText(editor, ihm, rec);
 
-		editor.playRecording();
+		insert.execute();
+		rec.startRecord();
+
+		insert.execute();
+
+		insert.execute();
+		rec.stopRecord();
+
+		rec.playRecord();
+
+		// nombre total d'insert = 5
+		MiniEditorStub testEditor = new MiniEditorStub(rec);
+
+		testEditor.editorInsert(msgTest);
+		testEditor.editorInsert(msgTest);
+		testEditor.editorInsert(msgTest);
+
+		testEditor.editorInsert(msgTest + msgTest);
+		
 		System.out.println(editor);
-
-		assertTrue(editor.getBuffer().equals(msgTest + msgTest));
+		System.out.println(testEditor);
+		
+		assertEquals(editor.getSelection(),testEditor.getSelection());
+		assertEquals(editor.getClipboard(), testEditor.getClipboard());
+		assertEquals(editor.getBuffer(),testEditor.getBuffer());
 	}
 
+	
 }

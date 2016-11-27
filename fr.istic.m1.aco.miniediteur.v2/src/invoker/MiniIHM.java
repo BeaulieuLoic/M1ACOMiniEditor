@@ -28,4 +28,7 @@ public interface MiniIHM {
 	public void launchIHM();
 	
 	public String getText();
+
+	public void setText(String str);
+
 }

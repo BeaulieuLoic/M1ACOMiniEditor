@@ -12,8 +12,7 @@ public class MiniEditorStub implements MiniEditor {
 
 	@Override
 	public String toString() {
-		return "MiniEditorStub: \nselector=" + selector + "\nclipboard="
-				+ clipboard + "\nbuffer=\n" + buffer + "\n";
+		return "MiniEditorStub: \nselector=" + selector + "\nclipboard=" + clipboard + "\nbuffer=\n" + buffer + "\n";
 	}
 
 	/**
@@ -49,7 +48,6 @@ public class MiniEditorStub implements MiniEditor {
 	 * @generated
 	 */
 
-
 	private MiniState actualState;
 
 	public MiniEditorStub() {
@@ -70,8 +68,7 @@ public class MiniEditorStub implements MiniEditor {
 	@Override
 	public void editorCopy() {
 		if (selector.getStart() != selector.getEnd()) {
-			clipboard.setClip(buffer.copy(selector.getStart(),
-					selector.getEnd()));
+			clipboard.setClip(buffer.copy(selector.getStart(), selector.getEnd()));
 		}
 	}
 
@@ -85,8 +82,7 @@ public class MiniEditorStub implements MiniEditor {
 	@Override
 	public void editorCut() {
 		if (selector.getStart() != selector.getEnd()) {
-			clipboard.setClip(buffer.copy(selector.getStart(),
-					selector.getEnd()));
+			clipboard.setClip(buffer.copy(selector.getStart(), selector.getEnd()));
 			buffer.delete(selector.getStart(), selector.getEnd());
 			editorSelect(selector.getStart(), selector.getStart());
 		}
@@ -118,12 +114,10 @@ public class MiniEditorStub implements MiniEditor {
 		int lengthStr = str.length();
 		if (selector.getStart() == selector.getEnd()) {
 			buffer.insert(selector.getStart(), str);
-			editorSelect(selector.getStart() + lengthStr, selector.getEnd()
-					+ lengthStr);
+			editorSelect(selector.getStart() + lengthStr, selector.getEnd() + lengthStr);
 		} else {
 			buffer.replace(selector.getStart(), selector.getEnd(), str);
-			editorSelect(selector.getStart() + lengthStr, selector.getStart()
-					+ lengthStr);
+			editorSelect(selector.getStart() + lengthStr, selector.getStart() + lengthStr);
 		}
 	}
 
@@ -184,8 +178,7 @@ public class MiniEditorStub implements MiniEditor {
 	@Override
 	public String getSelection() {
 
-		return buffer.getBuffer().toString()
-				.substring(selector.getStart(), selector.getEnd());
+		return buffer.getBuffer().toString().substring(selector.getStart(), selector.getEnd());
 	}
 
 	@Override
@@ -203,10 +196,10 @@ public class MiniEditorStub implements MiniEditor {
 		selector = actualState.getSel();
 	}
 
-	protected MiniState getState(){
+	protected MiniState getState() {
 		return this.actualState;
 	}
-	
+
 	public void undo() throws UndoException {
 		if (actualState.getPre() == null) {
 			throw new UndoException("No previous state");
@@ -231,12 +224,6 @@ public class MiniEditorStub implements MiniEditor {
 		actualState = actualState.getNext();
 	}
 
-	public boolean equalsSansEtat(MiniEditorStub edit){
-		return buffer.equals(edit.buffer) 
-				&& clipboard.equals(edit.clipboard)
-				&& selector.equals(edit.selector);
-	}
-	
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

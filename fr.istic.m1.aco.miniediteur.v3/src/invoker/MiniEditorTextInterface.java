@@ -8,8 +8,7 @@ import command.*;
 import receiver.MiniEditor;
 
 public class MiniEditorTextInterface implements MiniIHM {
-	static BufferedReader keyboard = new BufferedReader(new InputStreamReader(
-			System.in));
+	static BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
 	// Direct reference to MiniEditor (for V1 only)
 
@@ -48,8 +47,7 @@ public class MiniEditorTextInterface implements MiniIHM {
 		char commandLetter;
 
 		System.out.println("Welcome to MiniEditor 9.99 (c) 2016 ISTIC Rennes");
-		System.out
-				.println("-----------------------------------------------------------");
+		System.out.println("-----------------------------------------------------------");
 
 		System.out.println("Enter command (I/S/C/X/V/D/R/E/P/Z/Y/Q) > ");
 		try {
@@ -72,11 +70,9 @@ public class MiniEditorTextInterface implements MiniIHM {
 				if (inputLine.length() > 1) {
 					setText(inputLine.substring(2));
 					insert.execute();
-				}else{
+				} else {
 					System.out.println("problem insert, parameter missing");
 				}
-				
-				
 
 				break;
 			case 'S': /* Select */
@@ -123,17 +119,13 @@ public class MiniEditorTextInterface implements MiniIHM {
 				System.out.println("Unrecognized command, please try again:");
 				break;
 			}
-			System.out
-					.println("-----------------------------------------------------");
+			System.out.println("-----------------------------------------------------");
 			System.out.println("[" + editor.getBuffer() + "]");
-			System.out
-					.println("-----------------------------------------------------");
+			System.out.println("-----------------------------------------------------");
 			System.out.println("[" + editor.getSelection() + "]");
-			System.out
-					.println("-----------------------------------------------------");
+			System.out.println("-----------------------------------------------------");
 			System.out.println("[" + editor.getClipboard() + "]");
-			System.out
-					.println("-----------------------------------------------------");
+			System.out.println("-----------------------------------------------------");
 
 			System.out.println("Enter command (I/S/C/X/V/D/R/E/P/Z/Y/Q) > ");
 			try {
@@ -231,8 +223,8 @@ public class MiniEditorTextInterface implements MiniIHM {
 	public String getText() {
 		return insertText;
 	}
-	
-	public void setText(String str){
+
+	public void setText(String str) {
 		insertText = str;
 	}
 
