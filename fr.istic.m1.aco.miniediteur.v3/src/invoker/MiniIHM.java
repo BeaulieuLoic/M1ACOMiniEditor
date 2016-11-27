@@ -1,7 +1,10 @@
 package invoker;
 
 import command.Command;
-
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public interface MiniIHM {
 	public void setCopy(Command c);
 

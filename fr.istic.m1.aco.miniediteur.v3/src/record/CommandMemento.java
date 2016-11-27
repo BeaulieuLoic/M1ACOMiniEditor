@@ -4,10 +4,16 @@ import command.recordable.RecordableCommand;
 import memento.Memento;
 import memento.MementoSave;
 
+
+/**
+ * Class for associate a command with one of its mement
+ * 
+ * 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class CommandMemento {
 	
-
-
 	private RecordableCommand command;
 	private MementoSave save;
 	
@@ -16,10 +22,23 @@ public class CommandMemento {
 		this.save=m;
 	}
 	
+	/**
+	 * return the recordable command
+	 * 
+	 * @return a recordable command
+	 * 
+	 * */
 	public RecordableCommand getCommand(){
 		return command;
 	}
 	
+	
+	/**
+	 * return a memento of the recordable command
+	 * 
+	 * @return memento of a recordable command
+	 * 
+	 * */
 	public Memento getMemento(){
 		return save.getMemento();
 	}

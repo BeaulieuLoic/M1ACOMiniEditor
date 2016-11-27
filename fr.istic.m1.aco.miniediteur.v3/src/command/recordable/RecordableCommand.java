@@ -4,7 +4,10 @@ import record.Recorder;
 import command.Command;
 import memento.Memento;
 import memento.MementoState;
-
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public abstract class RecordableCommand implements Command {
 
 	protected MementoState mem;

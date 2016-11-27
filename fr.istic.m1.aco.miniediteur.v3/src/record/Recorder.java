@@ -5,6 +5,11 @@ import java.util.List;
 import memento.MementoSave;
 import command.recordable.RecordableCommand;
 
+
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class Recorder {
 	private boolean isRecording;
 	private List<CommandMemento> listCommand;
@@ -14,27 +19,47 @@ public class Recorder {
 		isRecording = false;
 	}
 
+	
+	/**
+	 * 
+	 * Add a recordable command
+	 * 
+	 * @param c
+	 * 			recordable command to add
+	 * */
 	public void add(RecordableCommand c) {
 		if (isRecording) {
 			listCommand.add(new CommandMemento(c, new MementoSave(c.createMemento())));
 		}
 	}
 
+	/**
+	 * Start the recording
+	 * */
 	public void startRecord() {
 		listCommand = new ArrayList<>();
 		isRecording = true;
 	}
 
+	/**
+	 * Stop the recording
+	 * */
 	public void stopRecord() {
 		isRecording = false;
 	}
 
+	/**
+	 * Call method executeRecord for each RecordableCommand with its saved memento
+	 * */
 	public void playRecord() {
 		for (CommandMemento commandMemento : listCommand) {
 			commandMemento.getCommand().executeRecord(commandMemento.getMemento().getState());
 		}
 	}
 
+	/**
+	 * use only for test
+	 * */
 	protected List<CommandMemento> getListCommand() {
 		return listCommand;
 	}

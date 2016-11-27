@@ -1,5 +1,9 @@
 package receiver;
 
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class MiniState {
 
 	private MiniState pre;

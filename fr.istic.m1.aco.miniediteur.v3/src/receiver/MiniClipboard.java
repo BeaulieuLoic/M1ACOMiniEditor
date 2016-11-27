@@ -1,12 +1,10 @@
 package receiver;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class MiniClipboard //extends Clipboard
 {
 

@@ -1,11 +1,9 @@
 package receiver;
 
-/**
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
  * 
- * @generated
- */
-
+ * */
 public class Selector {
 
 	@Override

@@ -1,5 +1,9 @@
 package receiver.exception;
 
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class UndoException extends Exception {
 
 	public UndoException() {

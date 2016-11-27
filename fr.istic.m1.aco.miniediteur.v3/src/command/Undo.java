@@ -2,7 +2,10 @@ package command;
 
 import receiver.MiniEditor;
 import receiver.exception.UndoException;
-
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class Undo implements Command {
 
 	private MiniEditor editor;

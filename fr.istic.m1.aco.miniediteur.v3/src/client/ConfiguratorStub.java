@@ -10,7 +10,10 @@ import command.recordable.ModifSelector;
 import command.recordable.Paste;
 import command.recordable.RemoveSelect;
 import invoker.*;
-
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class ConfiguratorStub {
 
 	/*

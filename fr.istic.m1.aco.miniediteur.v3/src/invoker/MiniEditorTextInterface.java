@@ -6,7 +6,10 @@ import java.io.InputStreamReader;
 
 import command.*;
 import receiver.MiniEditor;
-
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class MiniEditorTextInterface implements MiniIHM {
 	static BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 

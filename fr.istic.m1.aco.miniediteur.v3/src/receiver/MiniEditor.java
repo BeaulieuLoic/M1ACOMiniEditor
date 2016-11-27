@@ -3,11 +3,10 @@ package receiver;
 import receiver.exception.RedoException;
 import receiver.exception.UndoException;
 
-/**
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
  * 
- * @generated
- */
+ * */
 public interface MiniEditor {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

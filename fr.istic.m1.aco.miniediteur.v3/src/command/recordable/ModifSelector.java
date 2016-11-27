@@ -9,10 +9,10 @@ import invoker.MiniIHM;
 import receiver.MiniEditor;
 import record.Recorder;
 
-/**
- * @author Loic_Beaulieu
- *
- */
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 public class ModifSelector extends RecordableCommand {
 
 	private MiniEditor editor;
