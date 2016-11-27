@@ -3,6 +3,8 @@ package receiver;
 import receiver.exception.*;
 
 /** 
+ * Implementation of MiniEditor
+ * 
  * @author Loic_Beaulieu Valentin_Duron
  * @since 1.0
  * @version 3.0
@@ -31,6 +33,10 @@ public class MiniEditorStub implements MiniEditor {
 	}
 
 
+	/**
+	 * Implementation of editorCopy()
+	 * 
+	 * */
 	@Override
 	public void editorCopy() {
 		if (selector.getStart() != selector.getEnd()) {
@@ -38,7 +44,10 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
-
+	/**
+	 * Implementation of editorCut()
+	 * 
+	 * */
 	@Override
 	public void editorCut() {
 		if (selector.getStart() != selector.getEnd()) {
@@ -48,6 +57,11 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
+	/**
+	 * Implementation of editorPaste()
+	 * 
+	 * @see MiniEditor#editorPaste()
+	 * */
 	@Override
 	public void editorPaste() {
 
@@ -55,6 +69,10 @@ public class MiniEditorStub implements MiniEditor {
 
 	}
 
+	/**
+	 * Implementation of editorInsert(String str)
+	 * 
+	 * */
 	@Override
 	public void editorInsert(String str) {
 		int lengthStr = str.length();
@@ -67,6 +85,11 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
+	
+	/**
+	 * Implementation of editorRemove()
+	 * 
+	 * */
 	@Override
 	public void editorRemove() {
 
@@ -78,7 +101,11 @@ public class MiniEditorStub implements MiniEditor {
 			editorSelect(selector.getStart(), selector.getStart());
 		}
 	}
-
+	
+	/**
+	 * Implementation of editorSelect(int start, int end)
+	 * 
+	 * */
 	@Override
 	public void editorSelect(int start, int end) {
 		int startModif = start, endModif = end, tmp;
@@ -100,45 +127,85 @@ public class MiniEditorStub implements MiniEditor {
 		selector.setEnd(endModif);
 	}
 
+	/**
+	 * Use only for test
+	 * 
+	 * @return actual MiniBuffer
+	 * */
 	public MiniBuffer getMiniBuffer() {
 		return buffer;
 	}
 
+	/**
+	 * Implementation of editorSelect(int start, int end)
+	 * 
+	 * */
 	@Override
 	public String getBuffer() {
 		return buffer.getBuffer().toString();
 	}
 
+	/**
+	 * Implementation of getClipboard()
+	 * 
+	 * */
 	@Override
 	public String getClipboard() {
 		return clipboard.getClip();
 	}
 
+	/**
+	 * Implementation of getSelection()
+	 * 
+	 * */
 	@Override
 	public String getSelection() {
-
 		return buffer.getBuffer().toString().substring(selector.getStart(), selector.getEnd());
 	}
 
+
+	/**
+	 * Implementation of getSelection()
+	 * 
+	 * */
 	@Override
 	public int getStart() {
 		return selector.getStart();
 	}
-
+	
+	
+	/**
+	 * Implementation of getSelection()
+	 * 
+	 * */
 	@Override
 	public int getEnd() {
 		return selector.getEnd();
 	}
 
+	/**
+	 * update buffer and selector with the actual state
+	 * 
+	 * 
+	 * */
 	private void update() {
 		buffer = actualState.getBuf();
 		selector = actualState.getSel();
 	}
 
+	/**
+	 * use only for test
+	 * 
+	 * */
 	protected MiniState getState() {
 		return this.actualState;
 	}
 
+	/**
+	 * Implementation of undo()
+	 * 
+	 * */
+	@Override
 	public void undo() throws UndoException {
 		if (actualState.getPre() == null) {
 			throw new UndoException("No previous state");
@@ -148,6 +215,11 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
+	/**
+	 * Implementation of redo()
+	 * 
+	 * */
+	@Override
 	public void redo() throws RedoException {
 		if (actualState.getNext() == null) {
 			throw new RedoException("No next state");
@@ -158,6 +230,11 @@ public class MiniEditorStub implements MiniEditor {
 
 	}
 
+	/**
+	 * Implementation of newState()
+	 * 
+	 * */
+	@Override
 	public void newState() {
 		actualState.addNext(buffer, selector);
 		actualState = actualState.getNext();

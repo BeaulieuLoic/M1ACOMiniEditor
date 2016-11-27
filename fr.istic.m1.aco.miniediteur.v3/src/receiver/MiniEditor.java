@@ -14,15 +14,13 @@ public interface MiniEditor {
 
 	public void editorCut();
 
-	public void editorInsert(String parameter);
+	public void editorInsert(String str);
 
 	public void editorRemove();
 
 	public void editorPaste();
 
-	public void editorSelect(int parameter, int parameter2);
-
-	public MiniBuffer getMiniBuffer();
+	public void editorSelect(int start, int end);
 
 	public String getBuffer();
 
