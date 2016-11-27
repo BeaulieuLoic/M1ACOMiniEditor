@@ -1,8 +1,5 @@
 package client;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import record.Recorder;
 import receiver.*;
 import command.*;

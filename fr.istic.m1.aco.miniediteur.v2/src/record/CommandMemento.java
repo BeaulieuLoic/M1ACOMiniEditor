@@ -3,7 +3,6 @@ package record;
 import command.recordable.RecordableCommand;
 import memento.Memento;
 import memento.MementoSave;
-import memento.MementoState;
 
 public class CommandMemento {
 	

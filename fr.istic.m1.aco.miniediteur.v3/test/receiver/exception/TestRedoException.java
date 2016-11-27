@@ -1,7 +1,5 @@
 package receiver.exception;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import receiver.MiniEditorStub;

@@ -1,8 +1,5 @@
 package client;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import receiver.MiniEditor;
 import receiver.MiniEditorStub;
 import command.Command;
@@ -14,7 +11,6 @@ import command.Paste;
 import command.RemoveSelect;
 import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
-import invoker.MiniIHMStub;
 
 public class ConfiguratorStub {
 

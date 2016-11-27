@@ -1,6 +1,5 @@
 package command;
 
-import receiver.MiniEditor;
 import record.Recorder;
 
 public class StopRecording implements Command {

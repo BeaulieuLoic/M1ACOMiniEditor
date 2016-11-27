@@ -3,7 +3,6 @@ package receiver;
 import static org.junit.Assert.*;
 import invoker.MiniEditorTextInterface;
 import invoker.MiniIHM;
-import receiver.exception.RedoException;
 import receiver.exception.UndoException;
 import record.Recorder;
 

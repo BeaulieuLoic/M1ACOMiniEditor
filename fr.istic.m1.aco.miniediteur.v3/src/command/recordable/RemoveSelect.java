@@ -2,7 +2,6 @@ package command.recordable;
 
 import memento.Memento;
 import memento.MementoState;
-import invoker.MiniIHM;
 import receiver.MiniEditor;
 import record.Recorder;
 
