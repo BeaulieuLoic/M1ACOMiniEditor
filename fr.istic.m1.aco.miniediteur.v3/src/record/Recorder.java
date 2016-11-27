@@ -6,13 +6,11 @@ import memento.MementoSave;
 import command.recordable.RecordableCommand;
 
 public class Recorder {
-	private String nom;
 	private boolean isRecording;
 	private List<CommandMemento> listCommand;
 
 	public Recorder() {
 		listCommand = new ArrayList<>();
-		nom = "";
 		isRecording = false;
 	}
 
@@ -33,16 +31,14 @@ public class Recorder {
 
 	public void playRecord() {
 		for (CommandMemento commandMemento : listCommand) {
-			commandMemento.getCommand().executeRecord(
-					commandMemento.getMemento().getState());
+			commandMemento.getCommand().executeRecord(commandMemento.getMemento().getState());
 		}
 	}
-	
-	protected List<CommandMemento> getListCommand(){
+
+	protected List<CommandMemento> getListCommand() {
 		return listCommand;
 	}
-	
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -58,11 +54,6 @@ public class Recorder {
 			if (other.listCommand != null)
 				return false;
 		} else if (!listCommand.equals(other.listCommand))
-			return false;
-		if (nom == null) {
-			if (other.nom != null)
-				return false;
-		} else if (!nom.equals(other.nom))
 			return false;
 		return true;
 	}
