@@ -6,7 +6,8 @@ import memento.Memento;
 import memento.MementoState;
 /** 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 2.0
+ * @version 3.0
  * */
 public abstract class RecordableCommand implements Command {
 

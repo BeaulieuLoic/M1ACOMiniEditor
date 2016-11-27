@@ -4,7 +4,8 @@ import receiver.MiniEditor;
 import receiver.exception.UndoException;
 /** 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 3.0
+ * @version 3.0
  * */
 public class Undo implements Command {
 

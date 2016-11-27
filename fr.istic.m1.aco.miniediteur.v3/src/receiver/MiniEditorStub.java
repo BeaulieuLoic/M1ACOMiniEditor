@@ -4,7 +4,8 @@ import receiver.exception.*;
 
 /** 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 1.0
+ * @version 3.0
  * */
 public class MiniEditorStub implements MiniEditor {
 
@@ -13,38 +14,11 @@ public class MiniEditorStub implements MiniEditor {
 		return "MiniEditorStub: \nselector=" + selector + "\nclipboard=" + clipboard + "\nbuffer=\n" + buffer + "\n";
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
 	private MiniBuffer buffer;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
 
 	private Selector selector;
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
 	private MiniClipboard clipboard;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 
 	private MiniState actualState;
 
@@ -56,12 +30,6 @@ public class MiniEditorStub implements MiniEditor {
 		actualState = new MiniState(buffer, selector);
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
 
 	@Override
 	public void editorCopy() {
@@ -70,12 +38,6 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
 
 	@Override
 	public void editorCut() {
@@ -86,26 +48,12 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
 	@Override
 	public void editorPaste() {
 
 		editorInsert(clipboard.getClip());
 
 	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
 
 	@Override
 	public void editorInsert(String str) {
@@ -130,13 +78,6 @@ public class MiniEditorStub implements MiniEditor {
 			editorSelect(selector.getStart(), selector.getStart());
 		}
 	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
 
 	@Override
 	public void editorSelect(int start, int end) {

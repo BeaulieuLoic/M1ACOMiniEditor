@@ -3,7 +3,8 @@ package invoker;
 import command.Command;
 /** 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 1.0
+ * @version 3.0
  * */
 public interface MiniIHM {
 	public void setCopy(Command c);

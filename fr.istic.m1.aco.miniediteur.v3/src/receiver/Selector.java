@@ -1,8 +1,11 @@
 package receiver;
 
-/** 
- * @author Loic_Beaulieu Valentin_Duron
+/**
+ * Selector represent the selection 
  * 
+ * @author Loic_Beaulieu Valentin_Duron
+ * @since 1.0
+ * @version 1.0
  * */
 public class Selector {
 
@@ -12,28 +15,19 @@ public class Selector {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * position of the start of the selection
+	 * 
+	 * */
 	private int start;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * position of the end of the selection
+	 * 
+	 * */
 	private int end;
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public Selector() {
 		super();
 		start = 0;
@@ -48,11 +42,11 @@ public class Selector {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *  return the start position of the cursor
 	 * 
-	 * @generated
-	 * @ordered
+	 * 
+	 * @return return the start position of the cursor
 	 */
-
 	public int getStart() {
 		return start;
 	}
@@ -60,21 +54,22 @@ public class Selector {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * Define the start of the position of the selector
+	 * 
+	 * 
+	 * @param start position
+	 * */
 	public void setStart(int start) {
 		this.start = start;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *  return the end position of the cursor
 	 * 
-	 * @generated
-	 * @ordered
+	 * 
+	 * @return return the end position of the cursor
 	 */
-
 	public int getEnd() {
 		return end;
 	}
@@ -82,10 +77,11 @@ public class Selector {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * Define the end of the position of the selector
+	 * 
+	 * 
+	 * @param end position
+	 * */
 	public void setEnd(int end) {
 		this.end = end;
 	}

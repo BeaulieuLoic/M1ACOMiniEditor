@@ -7,7 +7,8 @@ import receiver.MiniEditor;
 import record.Recorder;
 /** 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 1.0
+ * @version 2.0
  * */
 public class InsertText extends RecordableCommand {
 

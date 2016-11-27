@@ -1,7 +1,7 @@
 package receiver;
 
 import static org.junit.Assert.*;
-import invoker.MiniEditorTextInterface;
+import invoker.MiniEditorTextStub;
 import invoker.MiniIHM;
 import receiver.exception.UndoException;
 import record.Recorder;
@@ -93,7 +93,7 @@ public class TestMiniEditorStub {
 		System.out.println("----- testPlayRecording -----");
 		rec = new Recorder();
 		editor = new MiniEditorStub();
-		MiniIHM ihm = new MiniEditorTextInterface(editor);
+		MiniIHM ihm = new MiniEditorTextStub(editor);
 		ihm.setText(msgTest);
 
 		RecordableCommand insert = new InsertText(editor, ihm, rec);
@@ -130,7 +130,7 @@ public class TestMiniEditorStub {
 		System.out.println("----- testUndo -----");
 		rec = new Recorder();
 		editor = new MiniEditorStub();
-		MiniIHM ihm = new MiniEditorTextInterface(editor);
+		MiniIHM ihm = new MiniEditorTextStub(editor);
 
 		ihm.setText(msgTest);
 		RecordableCommand insert = new InsertText(editor, ihm, rec);
@@ -155,7 +155,7 @@ public class TestMiniEditorStub {
 		System.out.println("----- testRedo -----");
 		rec = new Recorder();
 		editor = new MiniEditorStub();
-		MiniIHM ihm = new MiniEditorTextInterface(editor);
+		MiniIHM ihm = new MiniEditorTextStub(editor);
 
 		ihm.setText(msgTest);
 		RecordableCommand insert = new InsertText(editor, ihm, rec);

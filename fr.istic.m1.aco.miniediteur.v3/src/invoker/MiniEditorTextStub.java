@@ -8,9 +8,10 @@ import command.*;
 import receiver.MiniEditor;
 /** 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 1.0
+ * @version 3.0
  * */
-public class MiniEditorTextInterface implements MiniIHM {
+public class MiniEditorTextStub implements MiniIHM {
 	static BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
 	// Direct reference to MiniEditor (for V1 only)
@@ -36,7 +37,7 @@ public class MiniEditorTextInterface implements MiniIHM {
 
 	private String insertText;
 
-	public MiniEditorTextInterface(MiniEditor editor) {
+	public MiniEditorTextStub(MiniEditor editor) {
 		startSelect = 0;
 		endSelect = 0;
 		insertText = "";

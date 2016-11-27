@@ -7,11 +7,24 @@ import command.recordable.RecordableCommand;
 
 
 /** 
- * @author Loic_Beaulieu Valentin_Duron
+ * Class for add and play a list of recordable command
  * 
+ * @author Loic_Beaulieu Valentin_Duron
+ * @since 2.0
+ * @version 2.0
  * */
 public class Recorder {
+	
+	/**
+	 * 
+	 * when its true, the method add(c) add the recordable command into listCommand
+	 * 
+	 * */
 	private boolean isRecording;
+	
+	/**
+	 * contain a list of tuple (recordableCommand, MementoSave)
+	 * */
 	private List<CommandMemento> listCommand;
 
 	public Recorder() {
@@ -22,7 +35,7 @@ public class Recorder {
 	
 	/**
 	 * 
-	 * Add a recordable command
+	 * Add a recordable command with its actual memento
 	 * 
 	 * @param c
 	 * 			recordable command to add

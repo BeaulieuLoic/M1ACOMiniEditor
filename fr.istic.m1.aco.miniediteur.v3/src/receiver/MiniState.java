@@ -1,15 +1,43 @@
 package receiver;
 
 /** 
- * @author Loic_Beaulieu Valentin_Duron
+ * MiniState of the MiniEditorStub. Class add for V3
  * 
+ * 
+ * @author Loic_Beaulieu Valentin_Duron
+ * @since 3.0
+ * @version 3.0
  * */
 public class MiniState {
 
+	
+	/**
+	 * 
+	 * previous state. Can be null if this is the first state
+	 * 
+	 * */
 	private MiniState pre;
+	
+	/**
+	 * 
+	 * next state, Can be null if this is the last state
+	 * 
+	 * */
 	private MiniState next;
 
+	
+	/**
+	 * 
+	 * MiniBuffer of the actual state
+	 * 
+	 * */
 	private MiniBuffer buf;
+	
+	/**
+	 * 
+	 * Selector of the actual state
+	 * 
+	 * */
 	private Selector sel;
 
 	public MiniState(MiniBuffer buf, Selector sel) {
@@ -18,24 +46,62 @@ public class MiniState {
 		this.buf = new MiniBuffer(buf.getBuffer());
 		this.sel = new Selector(sel.getStart(),sel.getEnd());
 	}
-
+	
+	
+	/**
+	 * 
+	 * add new next state
+	 * 
+	 * @param buf MiniBuffer of the next state
+	 * @param sel Selector of the next state
+	 * 
+	 * */
 	public void addNext(MiniBuffer buf, Selector sel) {
 		next = new MiniState(buf, sel);
 		next.pre = this;
 	}
 
+	
+	/**
+	 * 
+	 * return the previous state
+	 * 
+	 * @return the previous state
+	 * 
+	 * */
 	public MiniState getPre() {
 		return pre;
 	}
 
+	/**
+	 * 
+	 * return the next state
+	 * 
+	 * @return next state
+	 * 
+	 * */
 	public MiniState getNext() {
 		return next;
 	}
 
+	/**
+	 * 
+	 * return the MiniBuffer of the actual state
+	 * 
+	 * @return the MiniBuffer of the actual state
+	 * 
+	 * */
 	public MiniBuffer getBuf() {
 		return buf;
 	}
 
+	/**
+	 * 
+	 * return the Selector of the actual state
+	 * 
+	 * @return the Selector of the actual state
+	 * 
+	 * */
 	public Selector getSel() {
 		return sel;
 	}

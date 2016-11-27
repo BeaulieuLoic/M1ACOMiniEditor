@@ -1,7 +1,7 @@
 package record;
 
 import static org.junit.Assert.*;
-import invoker.MiniEditorTextInterface;
+import invoker.MiniEditorTextStub;
 import invoker.MiniIHM;
 import memento.MementoSave;
 
@@ -26,7 +26,7 @@ public class RecorderTest {
 	public void testAdd1() {
 		recorder = new Recorder();
 		editor = new MiniEditorStub();
-		ihm = new MiniEditorTextInterface(editor);
+		ihm = new MiniEditorTextStub(editor);
 		
 		RecordableCommand insert = new InsertText(editor, ihm, recorder);
 		recorder.add(insert);
@@ -44,7 +44,7 @@ public class RecorderTest {
 	public void testAdd2() {
 		recorder = new Recorder();
 		editor = new MiniEditorStub();
-		ihm = new MiniEditorTextInterface(editor);
+		ihm = new MiniEditorTextStub(editor);
 
 		RecordableCommand insert = new InsertText(editor, ihm, recorder);
 		

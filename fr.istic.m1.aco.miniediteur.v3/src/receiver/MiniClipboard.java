@@ -3,7 +3,8 @@ package receiver;
 
 /** 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 1.0
+ * @version 1.0
  * */
 public class MiniClipboard //extends Clipboard
 {
@@ -16,11 +17,6 @@ public class MiniClipboard //extends Clipboard
 		return "\""+clip+"\"";
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!--  end-user-doc  -->
-	 * @generated
-	 */
 	public MiniClipboard(){
 		super();
 		clip="";

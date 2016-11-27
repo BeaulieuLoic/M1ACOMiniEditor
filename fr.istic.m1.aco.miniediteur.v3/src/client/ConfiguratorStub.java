@@ -27,7 +27,7 @@ public class ConfiguratorStub {
 		Recorder rec = new Recorder();
 
 		MiniEditor editor = new MiniEditorStub();
-		MiniIHM ihm = new MiniEditorTextInterface(editor);
+		MiniIHM ihm = new MiniEditorTextStub(editor);
 
 		Command copy = new Copy(editor, rec);
 		ihm.setCopy(copy);

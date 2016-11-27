@@ -6,15 +6,27 @@ import memento.MementoSave;
 
 
 /**
- * Class for associate a command with one of its mement
+ * Class for associate a command with one of its memento
  * 
  * 
  * @author Loic_Beaulieu Valentin_Duron
- * 
+ * @since 2.0
+ * @version 2.0
  * */
 public class CommandMemento {
 	
+	/**
+	 * 
+	 * the recordable command associate with its MementoSave (Caretaker)
+	 * 
+	 * */
 	private RecordableCommand command;
+	
+	/**
+	 * 
+	 * the MementoSave associate with its RecordableCommand (Originator)
+	 * 
+	 * */
 	private MementoSave save;
 	
 	public CommandMemento(RecordableCommand c,MementoSave m){
