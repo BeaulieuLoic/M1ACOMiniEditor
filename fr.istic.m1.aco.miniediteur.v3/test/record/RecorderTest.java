@@ -37,7 +37,7 @@ public class RecorderTest {
 
 		
 		
-		assertTrue(recorder.equals(testRec));
+		assertEquals(recorder,testRec);
 	}
 	
 	@Test
@@ -59,7 +59,7 @@ public class RecorderTest {
 		CommandMemento mem = new CommandMemento(insert, new MementoSave(insert.createMemento()));
 		testRec.getListCommand().add(mem);
 		
-		assertTrue(recorder.equals(testRec));
+		assertEquals(recorder,testRec);
 	}
 
 }

@@ -12,7 +12,8 @@ public class TestMiniBuffer {
 	public void testMiniBuffer() {
 		buf = new MiniBuffer();
 
-		assertTrue(buf != null && buf.getBuffer() != null);
+		assertNotNull(buf);
+		assertNotNull(buf.getBuffer());
 	}
 
 	@Test
@@ -26,7 +27,7 @@ public class TestMiniBuffer {
 		bufResult.getBuffer().insert(0, str);
 		bufResult.getBuffer().delete(3, 5);
 
-		assertTrue(buf.equals(bufResult));
+		assertEquals(buf, bufResult);
 	}
 
 	@Test
@@ -39,7 +40,7 @@ public class TestMiniBuffer {
 		MiniBuffer bufResult = new MiniBuffer();
 		bufResult.getBuffer().insert(0, str);
 
-		assertTrue(buf.copy(3, 5).equals(bufResult.getBuffer().substring(3, 5)));
+		assertEquals(buf.copy(3, 5), (bufResult.getBuffer().substring(3, 5)));
 	}
 
 	@Test
@@ -51,7 +52,7 @@ public class TestMiniBuffer {
 		MiniBuffer bufResult = new MiniBuffer();
 		bufResult.getBuffer().insert(0, str);
 
-		assertTrue(buf.equals(bufResult));
+		assertEquals(buf, bufResult);
 	}
 
 	@Test
@@ -66,7 +67,7 @@ public class TestMiniBuffer {
 		bufResult.getBuffer().insert(0, str);
 		bufResult.getBuffer().replace(3, 5, "AA");
 
-		assertTrue(buf.equals(bufResult));
+		assertEquals(buf, bufResult);
 	}
 
 	@Test
@@ -78,7 +79,7 @@ public class TestMiniBuffer {
 		MiniBuffer bufResult = new MiniBuffer();
 		bufResult.getBuffer().insert(0, str);
 
-		assertTrue(buf.getSize() == bufResult.getBuffer().length());
+		assertEquals(buf.getSize(), bufResult.getBuffer().length());
 	}
 
 }

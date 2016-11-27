@@ -21,6 +21,6 @@ public class TestMiniState {
 		state.addNext(bufTest,selTest);
 		MiniState nextState = state.getNext();
 		
-		assertTrue(state.equals(nextState.getPre()));
+		assertSame(state,nextState.getPre());
 	}
 }
