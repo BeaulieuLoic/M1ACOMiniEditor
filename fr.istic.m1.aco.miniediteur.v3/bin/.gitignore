@@ -1,6 +1,3 @@
-/receiver/
-/record/
-/memento/
-/invoker/
 /client/
 /command/
+/receiver/

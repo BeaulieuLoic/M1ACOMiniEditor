@@ -15,6 +15,12 @@ public class Undo implements Command {
 		this.editor=editor;
 	}
 	
+	/**
+	 * Execute the concerned command and
+	 * do diverse others operations given by context
+	 * 
+	 * And catch UndoExceptions
+	 */
 	@Override
 	public void execute() {
 		try {

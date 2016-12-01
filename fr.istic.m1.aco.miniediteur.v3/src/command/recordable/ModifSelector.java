@@ -1,6 +1,3 @@
-/**
- * 
- */
 package command.recordable;
 
 import memento.Memento;
@@ -26,11 +23,6 @@ public class ModifSelector extends RecordableCommand {
 		
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see command.Command#execute()
-	 */
 	@Override
 	public void execute() {
 		editor.editorSelect(ihm.getSelectStart(), ihm.getSelectEnd());

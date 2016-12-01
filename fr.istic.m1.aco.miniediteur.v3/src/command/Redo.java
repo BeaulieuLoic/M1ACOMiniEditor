@@ -14,7 +14,13 @@ public class Redo implements Command {
 	public Redo(MiniEditor editor) {
 		this.editor = editor;
 	}
-
+	
+	/**
+	 * Execute the concerned command and
+	 * do diverse others operations given by context
+	 * 
+	 * And catch RedoExceptions
+	 */
 	@Override
 	public void execute() {
 		try {

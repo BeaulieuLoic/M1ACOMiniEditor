@@ -6,6 +6,10 @@ package command;
  * */
 public interface Command {
 	
+	/**
+	 * Execute the concerned command and
+	 * do diverse others operations given by context
+	 */
 	public void execute();
 	
 

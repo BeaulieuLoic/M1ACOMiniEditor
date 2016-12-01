@@ -16,12 +16,11 @@ import invoker.*;
  * */
 public class ConfiguratorStub {
 
-	/*
-	 * ajouter tout les attributs et faire l'instanciation du tout
-	 * 
-	 * -MiniIHM -MiniEditor -Command : paste,Ins,Cut,Copy
-	 */
 
+	/**
+	 * Initialize all necessary context
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		Recorder rec = new Recorder();

@@ -22,10 +22,19 @@ public abstract class RecordableCommand implements Command {
 		this.mem = mem.getState();
 	}
 
+	/**
+	 * @return the memento created by the command
+	 */
 	public abstract Memento createMemento();
 	
+	/**
+	 * @param mem attributes for some commands
+	 */
 	public abstract void executeRecord(MementoState mem);
 
+	/**
+	 * Equals, usefull for testing.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

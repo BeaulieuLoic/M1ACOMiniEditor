@@ -85,7 +85,10 @@ public class MiniBuffer {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @return the size of the buffer
+	 */
 	public int getSize(){
 		return buffer.length();
 	}
