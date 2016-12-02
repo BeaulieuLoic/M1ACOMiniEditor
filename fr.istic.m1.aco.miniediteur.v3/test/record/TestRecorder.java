@@ -16,7 +16,7 @@ import command.recordable.RecordableCommand;
 
 
 
-public class RecorderTest {
+public class TestRecorder {
 	Recorder recorder;
 	MiniEditor editor;
 	MiniIHM ihm;

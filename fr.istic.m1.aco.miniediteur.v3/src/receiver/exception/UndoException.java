@@ -1,6 +1,8 @@
 package receiver.exception;
 
 /** 
+ * Throw if a next state doesn't exist in the miniEditor
+ * 
  * @author Loic_Beaulieu Valentin_Duron
  * @since 3.0
  * @version 3.0

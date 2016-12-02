@@ -18,11 +18,17 @@ public abstract class RecordableCommand implements Command {
 		recorder = rec;
 	}
 
+	/**
+	 * Set the state of this object with the state of mem
+	 * 
+	 * @param mem memento to set
+	 * */
 	public void setMemento(Memento mem) {
 		this.mem = mem.getState();
 	}
 
 	/**
+	 * 
 	 * @return the memento created by the command
 	 */
 	public abstract Memento createMemento();

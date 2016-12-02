@@ -19,7 +19,7 @@ public class ConfiguratorStub {
 
 	/**
 	 * Initialize all necessary context
-	 * @param args
+	 * @param args args
 	 */
 	public static void main(String[] args) {
 
