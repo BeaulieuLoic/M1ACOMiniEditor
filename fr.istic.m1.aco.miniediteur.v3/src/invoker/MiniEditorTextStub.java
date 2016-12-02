@@ -124,11 +124,11 @@ public class MiniEditorTextStub implements MiniIHM {
 				break;
 			}
 			System.out.println("-----------------------------------------------------");
-			System.out.println("[" + editor.getBuffer() + "]");
+			System.out.println("Buffer :[" + editor.getBuffer() + "]");
 			System.out.println("-----------------------------------------------------");
-			System.out.println("[" + editor.getSelection() + "]");
+			System.out.println("Selection :[" + editor.getSelection() + "]");
 			System.out.println("-----------------------------------------------------");
-			System.out.println("[" + editor.getClipboard() + "]");
+			System.out.println("Clipboard :[" + editor.getClipboard() + "]");
 			System.out.println("-----------------------------------------------------");
 
 			System.out.println("Enter command (I/S/C/X/V/D/R/E/P/Z/Y/Q) > ");

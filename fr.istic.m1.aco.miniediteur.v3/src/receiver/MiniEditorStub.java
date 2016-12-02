@@ -108,7 +108,15 @@ public class MiniEditorStub implements MiniEditor {
 	 * */
 	@Override
 	public void editorSelect(int start, int end) {
+
 		int startModif = start, endModif = end, tmp;
+		if (start < 0) {
+			startModif= 0;
+		}
+		if (end < 0) {
+			endModif= 0;
+		}		
+		
 		if (startModif > endModif) {
 			tmp = endModif;
 			endModif = startModif;
