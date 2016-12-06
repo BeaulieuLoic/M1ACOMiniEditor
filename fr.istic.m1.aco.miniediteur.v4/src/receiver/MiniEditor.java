@@ -1,5 +1,8 @@
 package receiver;
 
+import Annulator.exception.RedoException;
+import Annulator.exception.UndoException;
+
 /**
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * 
@@ -48,7 +51,7 @@ public interface MiniEditor {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
-	 * @ordered
+	 * @ordereds
 	 */
 
 	public void editorSelect(int parameter, int parameter2);
@@ -63,10 +66,16 @@ public interface MiniEditor {
 
 	public int getEnd();
 
+	public void reset();
+	
 	public void startRecording();
-	
+
 	public void stopRecording();
-	
+
 	public void playRecording();
-	
+
+	public void undo() throws UndoException;
+
+	public void redo() throws RedoException;
 }
+

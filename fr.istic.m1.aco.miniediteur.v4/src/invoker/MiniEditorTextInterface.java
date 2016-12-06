@@ -10,7 +10,6 @@ import receiver.MiniEditor;
 public class MiniEditorTextInterface implements MiniIHM {
 	static BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
-	// Direct reference to MiniEditor (for V1 only)
 
 	private Command copy;
 	private Command cut;
@@ -22,7 +21,9 @@ public class MiniEditorTextInterface implements MiniIHM {
 	private Command startRecording;
 	private Command stopRecording;
 	private Command playRecording;
-
+	private Command undo;
+	private Command redo;
+	
 	private MiniEditor editor;
 
 	private int startSelect;
@@ -51,6 +52,9 @@ public class MiniEditorTextInterface implements MiniIHM {
 			inputLine = keyboard.readLine();
 		} catch (IOException e) {
 			System.out.println("Unable to read standard input");
+			inputLine = "W";
+		}		
+		if (inputLine.charAt(1)!=' '){
 			inputLine = "W";
 		}
 		if (inputLine.isEmpty()) {
@@ -102,10 +106,10 @@ public class MiniEditorTextInterface implements MiniIHM {
 				playRecording.execute();
 				break;
 			case 'Z': /* undo */
-				// Insert your code here (V3)
+				undo.execute();
 				break;
 			case 'Y': /* redo */
-				// Insert your code here (V3)
+				redo.execute();
 				break;
 			default:
 				System.out.println("Unrecognized command, please try again:");
@@ -188,7 +192,17 @@ public class MiniEditorTextInterface implements MiniIHM {
 		playRecording = c;
 
 	}
+	
+	@Override
+	public void setUndo(Command c) {
+		undo = c;
+	}
 
+	@Override
+	public void setRedo(Command c) {
+		redo = c;
+	}
+	
 	@Override
 	public int getSelectStart() {
 		return startSelect;

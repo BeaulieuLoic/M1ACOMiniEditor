@@ -1,5 +1,8 @@
 package receiver;
 
+import Annulator.Annulator;
+import Annulator.exception.RedoException;
+import Annulator.exception.UndoException;
 import record.Recorder;
 
 /**
@@ -11,7 +14,7 @@ import record.Recorder;
 public class MiniEditorStub implements MiniEditor {
 	@Override
 	public String toString() {
-		return "MiniEditorStub: \nselector=" + selector + "\nclipboard=" + clipboard + "\nbuffer=" + buffer + "\n";
+		return "MiniEditorStub: \nselector=" + selector + "\nclipboard=" + clipboard + "\nbuffer=" + buffer + "\nannulator=" + annulator + "\n";
 	}
 
 	/**
@@ -48,13 +51,16 @@ public class MiniEditorStub implements MiniEditor {
 	 */
 
 	private Recorder recorder;
+	
+	private Annulator annulator;
 
-	public MiniEditorStub(Recorder r) {
+	public MiniEditorStub(Recorder r,Annulator a) {
 		super();
 		buffer = new MiniBuffer();
 		clipboard = new MiniClipboard();
 		selector = new Selector();
 		recorder = r;
+		annulator = a;
 	}
 
 	/**
@@ -207,6 +213,23 @@ public class MiniEditorStub implements MiniEditor {
 	@Override
 	public void playRecording() {
 		recorder.playRecord();
+	}
+	
+	@Override
+	public void undo() throws UndoException {
+		this.reset();
+		annulator.undo();
+	}
+	
+	@Override
+	public void redo() throws RedoException {
+		annulator.redo();
+	}
+
+	@Override
+	public void reset() {
+		buffer = new MiniBuffer();
+		selector = new Selector();
 	}
 
 }

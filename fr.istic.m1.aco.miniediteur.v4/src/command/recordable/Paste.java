@@ -1,5 +1,6 @@
 package command.recordable;
 
+import Annulator.Annulator;
 import memento.Memento;
 import memento.MementoState;
 import receiver.MiniEditor;
@@ -9,8 +10,8 @@ public class Paste extends RecordableCommand {
 
 	private MiniEditor editor;
 	
-	public Paste(MiniEditor e, Recorder r) {
-		super(r);
+	public Paste(MiniEditor e, Recorder r, Annulator a) {
+		super(r,a);
 		editor = e;
 	}
 
@@ -18,6 +19,7 @@ public class Paste extends RecordableCommand {
 	public void execute() {
 		editor.editorPaste();
 		recorder.add(this);
+		annulator.add(this);
 	}
 
 	public Memento createMemento() {

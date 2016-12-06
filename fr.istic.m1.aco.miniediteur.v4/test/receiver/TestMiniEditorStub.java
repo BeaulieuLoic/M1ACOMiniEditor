@@ -7,19 +7,22 @@ import record.Recorder;
 
 import org.junit.Test;
 
+import Annulator.Annulator;
 import command.recordable.InsertText;
 import command.recordable.RecordableCommand;
 
 public class TestMiniEditorStub {
 	MiniEditorStub editor;
 	Recorder rec;
+	Annulator ann;
 	String msgTest = "aze ";
 
 	@Test
 	public void testEditorCopy() {
 		System.out.println("----- testEditorCopy -----");
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		ann = new Annulator();
+		editor = new MiniEditorStub(rec, ann);
 		editor.editorInsert(msgTest);
 		editor.editorSelect(0, 500);
 		editor.editorCopy();
@@ -33,7 +36,8 @@ public class TestMiniEditorStub {
 	public void testEditorCut() {
 		System.out.println("----- testEditorCut -----");
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		ann = new Annulator();
+		editor = new MiniEditorStub(rec, ann);
 		editor.editorInsert(msgTest);
 		editor.editorSelect(0, 500);
 		editor.editorCut();
@@ -47,7 +51,8 @@ public class TestMiniEditorStub {
 	public void testEditorPaste() {
 		System.out.println("----- testEditorPaste -----");
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		ann = new Annulator();
+		editor = new MiniEditorStub(rec, ann);
 		editor.editorInsert(msgTest);
 		editor.editorSelect(0, 500);
 		editor.editorCopy();
@@ -63,7 +68,8 @@ public class TestMiniEditorStub {
 	public void testEditorInsert() {
 		System.out.println("----- testEditorInsert -----");
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		ann = new Annulator();
+		editor = new MiniEditorStub(rec, ann);
 
 		editor.editorInsert(msgTest);
 		editor.editorInsert(msgTest);
@@ -79,7 +85,8 @@ public class TestMiniEditorStub {
 	public void testEditorSelect() {
 		System.out.println("----- testEditorSelect -----");
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		ann = new Annulator();
+		editor = new MiniEditorStub(rec, ann);
 		editor.editorInsert(msgTest);
 		editor.editorSelect(0, 50);
 		System.out.println(editor);
@@ -91,11 +98,12 @@ public class TestMiniEditorStub {
 	public void testPlayRecording() {
 		System.out.println("----- testPlayRecording -----");
 		rec = new Recorder();
-		editor = new MiniEditorStub(rec);
+		ann = new Annulator();
+		editor = new MiniEditorStub(rec, ann);
 		MiniIHM ihm = new MiniEditorTextInterface(editor);
 		ihm.setText(msgTest);
 
-		RecordableCommand insert = new InsertText(editor, ihm, rec);
+		RecordableCommand insert = new InsertText(editor, ihm, rec, ann);
 
 		insert.execute();
 		rec.startRecord();
@@ -108,7 +116,7 @@ public class TestMiniEditorStub {
 		rec.playRecord();
 
 		// nombre total d'insert = 5
-		MiniEditorStub testEditor = new MiniEditorStub(rec);
+		MiniEditorStub testEditor = new MiniEditorStub(rec, ann);
 
 		testEditor.editorInsert(msgTest);
 		testEditor.editorInsert(msgTest);

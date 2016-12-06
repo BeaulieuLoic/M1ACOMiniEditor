@@ -7,6 +7,7 @@ import memento.MementoSave;
 
 import org.junit.Test;
 
+import Annulator.Annulator;
 import receiver.MiniEditor;
 import receiver.MiniEditorStub;
 import record.CommandMemento;
@@ -18,6 +19,7 @@ import command.recordable.RecordableCommand;
 
 public class RecorderTest {
 	Recorder recorder;
+	Annulator annulator;
 	MiniEditor editor;
 	MiniIHM ihm;
 	
@@ -25,10 +27,11 @@ public class RecorderTest {
 	@Test
 	public void testAdd1() {
 		recorder = new Recorder();
-		editor = new MiniEditorStub(recorder);
+		annulator = new Annulator();
+		editor = new MiniEditorStub(recorder, annulator);
 		ihm = new MiniEditorTextInterface(editor);
 		
-		RecordableCommand insert = new InsertText(editor, ihm, recorder);
+		RecordableCommand insert = new InsertText(editor, ihm, recorder, annulator);
 		recorder.add(insert);
 		recorder.add(insert);
 
@@ -43,10 +46,11 @@ public class RecorderTest {
 	@Test
 	public void testAdd2() {
 		recorder = new Recorder();
-		editor = new MiniEditorStub(recorder);
+		annulator = new Annulator();
+		editor = new MiniEditorStub(recorder, annulator);
 		ihm = new MiniEditorTextInterface(editor);
 
-		RecordableCommand insert = new InsertText(editor, ihm, recorder);
+		RecordableCommand insert = new InsertText(editor, ihm, recorder, annulator);
 		
 		recorder.add(insert);
 		

@@ -5,6 +5,7 @@ package command.recordable;
 
 import memento.Memento;
 import memento.MementoState;
+import Annulator.Annulator;
 import invoker.MiniIHM;
 import receiver.MiniEditor;
 import record.Recorder;
@@ -18,11 +19,10 @@ public class ModifSelector extends RecordableCommand {
 	private MiniEditor editor;
 	private MiniIHM ihm;
 	
-	public ModifSelector(MiniEditor e, MiniIHM i, Recorder r) {
-		super(r);
+	public ModifSelector(MiniEditor e, MiniIHM i, Recorder r, Annulator a) {
+		super(r,a);
 		editor = e;
 		ihm = i;
-		
 	}
 
 	/*
@@ -34,6 +34,7 @@ public class ModifSelector extends RecordableCommand {
 	public void execute() {
 		editor.editorSelect(ihm.getSelectStart(), ihm.getSelectEnd());
 		recorder.add(this);
+		//annulator.add(this);
 	}
 
 	public Memento createMemento() {

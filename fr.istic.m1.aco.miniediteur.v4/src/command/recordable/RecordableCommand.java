@@ -1,6 +1,7 @@
 package command.recordable;
 
 import record.Recorder;
+import Annulator.Annulator;
 import command.Command;
 import memento.Memento;
 import memento.MementoState;
@@ -9,9 +10,11 @@ public abstract class RecordableCommand implements Command {
 
 	protected MementoState mem;
 	protected Recorder recorder;
+	protected Annulator annulator;
 	
-	public RecordableCommand(Recorder rec){
+	public RecordableCommand(Recorder rec,Annulator ann){
 		recorder = rec;
+		annulator = ann;
 	}
 
 	public void setMemento(Memento mem) {
