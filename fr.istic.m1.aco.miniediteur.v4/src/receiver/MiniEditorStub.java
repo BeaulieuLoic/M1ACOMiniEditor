@@ -5,71 +5,44 @@ import Annulator.exception.RedoException;
 import Annulator.exception.UndoException;
 import record.Recorder;
 
-/**
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+/** 
+ * Implementation of MiniEditor
  * 
- * @generated
- */
-
+ * @author Loic_Beaulieu Valentin_Duron
+ * @since 1.0
+ * @version 3.0
+ * */
 public class MiniEditorStub implements MiniEditor {
+
 	@Override
 	public String toString() {
-		return "MiniEditorStub: \nselector=" + selector + "\nclipboard=" + clipboard + "\nbuffer=" + buffer + "\nannulator=" + annulator + "\n";
+		return "MiniEditorStub: \nselector=" + selector + "\nclipboard=" + clipboard + "\nbuffer=\n" + buffer + "\n";
 	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
 
 	private MiniBuffer buffer;
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
 	private Selector selector;
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
 	private MiniClipboard clipboard;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 
 	private Recorder recorder;
 	
 	private Annulator annulator;
 
-	public MiniEditorStub(Recorder r,Annulator a) {
+	public MiniEditorStub(Recorder rec, Annulator ann) {
 		super();
 		buffer = new MiniBuffer();
 		clipboard = new MiniClipboard();
 		selector = new Selector();
-		recorder = r;
-		annulator = a;
-	}
+		recorder = rec;
+		annulator = ann;
+}
+
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Implementation of editorCopy()
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * */
 	@Override
 	public void editorCopy() {
 		if (selector.getStart() != selector.getEnd()) {
@@ -78,12 +51,9 @@ public class MiniEditorStub implements MiniEditor {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Implementation of editorCut()
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * */
 	@Override
 	public void editorCut() {
 		if (selector.getStart() != selector.getEnd()) {
@@ -94,12 +64,10 @@ public class MiniEditorStub implements MiniEditor {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Implementation of editorPaste()
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * @see MiniEditor#editorPaste()
+	 * */
 	@Override
 	public void editorPaste() {
 
@@ -108,12 +76,9 @@ public class MiniEditorStub implements MiniEditor {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Implementation of editorInsert(String str)
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * */
 	@Override
 	public void editorInsert(String str) {
 		int lengthStr = str.length();
@@ -126,6 +91,11 @@ public class MiniEditorStub implements MiniEditor {
 		}
 	}
 
+	
+	/**
+	 * Implementation of editorRemove()
+	 * 
+	 * */
 	@Override
 	public void editorRemove() {
 
@@ -137,14 +107,11 @@ public class MiniEditorStub implements MiniEditor {
 			editorSelect(selector.getStart(), selector.getStart());
 		}
 	}
-
+	
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Implementation of editorSelect(int start, int end)
 	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * */
 	@Override
 	public void editorSelect(int start, int end) {
 
@@ -174,27 +141,57 @@ public class MiniEditorStub implements MiniEditor {
 		selector.setEnd(endModif);
 	}
 
+	/**
+	 * Use only for test
+	 * 
+	 * @return actual MiniBuffer
+	 * */
+	public MiniBuffer getMiniBuffer() {
+		return buffer;
+	}
+
+	/**
+	 * Implementation of editorSelect(int start, int end)
+	 * 
+	 * */
 	@Override
 	public String getBuffer() {
 		return buffer.getBuffer().toString();
 	}
 
+	/**
+	 * Implementation of getClipboard()
+	 * 
+	 * */
 	@Override
 	public String getClipboard() {
 		return clipboard.getClip();
 	}
 
+	/**
+	 * Implementation of getSelection()
+	 * 
+	 * */
 	@Override
 	public String getSelection() {
-
 		return buffer.getBuffer().toString().substring(selector.getStart(), selector.getEnd());
 	}
 
+
+	/**
+	 * Implementation of getSelection()
+	 * 
+	 * */
 	@Override
 	public int getStart() {
 		return selector.getStart();
 	}
-
+	
+	
+	/**
+	 * Implementation of getSelection()
+	 * 
+	 * */
 	@Override
 	public int getEnd() {
 		return selector.getEnd();
@@ -231,5 +228,33 @@ public class MiniEditorStub implements MiniEditor {
 		buffer = new MiniBuffer();
 		selector = new Selector();
 	}
+
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MiniEditorStub other = (MiniEditorStub) obj;
+		if (buffer == null) {
+			if (other.buffer != null)
+				return false;
+		} else if (!buffer.equals(other.buffer))
+			return false;
+		if (clipboard == null) {
+			if (other.clipboard != null)
+				return false;
+		} else if (!clipboard.equals(other.clipboard))
+			return false;
+		if (selector == null) {
+			if (other.selector != null)
+				return false;
+		} else if (!selector.equals(other.selector))
+			return false;
+		return true;
+	}
+
 
 }

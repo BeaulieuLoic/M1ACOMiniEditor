@@ -1,54 +1,101 @@
 package receiver;
 
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * 
+ * */
 import java.lang.StringBuffer;
 
-/**
- * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
- * @generated
- */
 
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * @since 1.0
+ * @version 1.0
+ * */
 public class MiniBuffer {
 
 	private StringBuffer buffer;
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public MiniBuffer() {
 		super();
 		buffer = new StringBuffer();
 	}
 
+	public MiniBuffer(StringBuffer buf){
+		super();
+		buffer=new StringBuffer(buf.toString());
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param start position to start for remove text
+	 * @param end position to end for remove text
+	 * 
+	 * 
+	 * */
 	public void delete(int start, int end) {
 		buffer.delete(start, end);
 	}
 
+	
+	/**
+	 * 
+	 * @param start position to start for copy text
+	 * @param end position to end for copy text
+	 * 
+	 * @return string to copy
+	 * 
+	 * */
 	public String copy(int start, int end) {
 		return buffer.substring(start, end);
 	}
 
+	
+	/**
+	 * 
+	 * @param cursor position of the insert text
+	 * @param str String to insert
+	 * 
+	 * */
 	public void insert(int cursor, String str) {
 		buffer.insert(cursor, str);
 	}
-
+	
+	
+	/**
+	 * 
+	 * @param start position to start for copy text
+	 * @param end position to end for copy text
+	 * @param str String to insert
+	 * 
+	 * */
 	public void replace(int start, int end, String str) {
 		buffer.replace(start, end, str);
 	}
-
+	
+	
+	/**
+	 * 
+	 * @return the StringBuffer who contain text
+	 * 
+	 * */
 	public StringBuffer getBuffer() {
 		return buffer;
 	}
-
-	public int getSize() {
+	
+	
+	/**
+	 * 
+	 * @return the size of the buffer
+	 */
+	public int getSize(){
 		return buffer.length();
 	}
 
 	@Override
 	public String toString() {
-		return "\"" + buffer.toString() + "\"";
+		return "\""+buffer.toString()+"\"";
 	}
 	
 	@Override
@@ -67,4 +114,6 @@ public class MiniBuffer {
 			return false;
 		return true;
 	}
+
+
 }

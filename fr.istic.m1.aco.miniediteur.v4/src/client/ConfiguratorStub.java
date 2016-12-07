@@ -58,7 +58,7 @@ public class ConfiguratorStub {
 
 		Command undo = new Undo(editor);
 		ihm.setUndo(undo);
-		
+
 		Command redo = new Redo(editor);
 		ihm.setRedo(redo);
 

@@ -3,79 +3,109 @@ package receiver;
 import Annulator.exception.RedoException;
 import Annulator.exception.UndoException;
 
-/**
- * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
- * @generated
- */
+/** 
+ * @author Loic_Beaulieu Valentin_Duron
+ * @since 1.0
+ * @version 3.0
+ * */
 public interface MiniEditor {
+	
+	
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * Put the current selection into the clipboard
+	 * */
 	public void editorCopy();
 
+	
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * Put the current selection into the clipboard and remove from the buffer
+	 * */
 	public void editorCut();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Insert a String into the selection
 	 * 
-	 * @generated
-	 * @ordered
-	 */
+	 * @param str The string to insert
+	 * */
+	public void editorInsert(String str);
 
-	public void editorInsert(String parameter);
-
+	/**
+	 * Remove String in the current selection
+	 * */
 	public void editorRemove();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-
+	 * Paste into the selection the clipboard
+	 * */
 	public void editorPaste();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Move the selection
 	 * 
-	 * @generated
-	 * @ordereds
-	 */
+	 * @param start The start of new selection
+	 * @param end The end of new selection
+	 * */
+	public void editorSelect(int start, int end);
 
-	public void editorSelect(int parameter, int parameter2);
-
+	/**
+	 * Return the String contained into the buffer
+	 * 
+	 * @return The String contained into the buffer
+	 * */
 	public String getBuffer();
 
+	/**
+	 * Return the String contained into the clipboard
+	 * 
+	 * @return The String contained into the clipboard
+	 * */
 	public String getClipboard();
 
+	/**
+	 * Return the string of current selection
+	 * 
+	 * @return The string of current selection
+	 * */
 	public String getSelection();
 
+	
+	/**
+	 * Return current position of start selection
+	 * 
+	 * @return Current position of start selection
+	 * */
 	public int getStart();
 
+	/**
+	 * Return current position of end selection
+	 * 
+	 * @return Current position of end selection
+	 * */
 	public int getEnd();
 
-	public void reset();
-	
-	public void startRecording();
-
-	public void stopRecording();
-
-	public void playRecording();
-
+	/**
+	 * Switch current state with previous state.
+	 * 
+	 * @throws UndoException Throw if previous state doesn't exist
+	 * */
 	public void undo() throws UndoException;
 
+	/**
+	 * Switch current state with next state. 
+	 *
+	 * @throws RedoException Throw if next state doesn't exist
+	 * */
 	public void redo() throws RedoException;
-}
+	
+	void startRecording();
 
+
+	void stopRecording();
+
+
+	void playRecording();
+
+
+	void reset();
+	
+}
