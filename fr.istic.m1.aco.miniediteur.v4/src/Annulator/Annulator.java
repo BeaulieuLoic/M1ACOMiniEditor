@@ -10,9 +10,9 @@ import record.CommandMemento;
 import command.recordable.RecordableCommand;
 
 public class Annulator {
-	private int stateIndex;
+	private int stateIndex; //indique la position de derniere commande execute dans la liste
 	private int maxIndex;
-	private List<CommandMemento> listCommand;
+	private List<CommandMemento> listCommand; //liste des commandes executees/historique
 
 	public Annulator() {
 		stateIndex = 0;
@@ -26,37 +26,29 @@ public class Annulator {
 		stateIndex++;
 		maxIndex++;
 
-		if (stateIndex != maxIndex) {
+		if (stateIndex != maxIndex) {//verfication et operations pour conserver l'integrité de l'historique
 			maxIndex = stateIndex;
 			System.out.println("Suppr de " + (stateIndex+1) + " " + (listCommand.size()-1));
 			listCommand.subList(stateIndex, listCommand.size()).clear();
 		}
-
-		//System.out.println("State index : " + stateIndex);
-		//System.out.println("Max index : " + maxIndex);
-		//System.out.println(listCommand + " " + listCommand.size());
 	}
 
 	public void undo() throws UndoException {
 		if (stateIndex > 0) {
 			stateIndex--;
-			for (int i = 0; i < stateIndex; i++) {
+			for (int i = 0; i < stateIndex; i++) {//on recree a partir de l'etat initial
 				CommandMemento commandMemento = listCommand.get(i);
 				commandMemento.getCommand().executeRecord(commandMemento.getMemento().getState());
 			}
 		} else {
 			throw new UndoException("No previous state");
 		}
-
-		//System.out.println("State index : " + stateIndex);
-		//System.out.println("Max index : " + maxIndex);
-		//System.out.println(listCommand + " " + listCommand.size());
 	}
 
 	public void redo() throws RedoException {
 
 		try {
-			if (stateIndex < maxIndex) {
+			if (stateIndex < maxIndex) {//on execute la commande suivante
 				CommandMemento commandMemento = listCommand.get(stateIndex);
 				commandMemento.getCommand().executeRecord(commandMemento.getMemento().getState());
 				stateIndex++;
