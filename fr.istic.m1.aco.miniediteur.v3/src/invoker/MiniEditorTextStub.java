@@ -14,8 +14,6 @@ import receiver.MiniEditor;
 public class MiniEditorTextStub implements MiniIHM {
 	static BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
-	// Direct reference to MiniEditor (for V1 only)
-
 	private Command copy;
 	private Command cut;
 	private Command paste;
@@ -42,7 +40,6 @@ public class MiniEditorTextStub implements MiniIHM {
 		endSelect = 0;
 		insertText = "";
 		this.editor = editor;
-
 	}
 
 	public void launchIHM() {

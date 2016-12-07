@@ -131,6 +131,4 @@ public class TestMiniEditorStub {
 		assertEquals(editor.getClipboard(), testEditor.getClipboard());
 		assertEquals(editor.getBuffer(),testEditor.getBuffer());
 	}
-
-	
 }
